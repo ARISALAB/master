@@ -1,0 +1,2198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GECS Business English Mastery — 10-Week Course</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#0F1923;--ink2:#1C2B3A;--ink3:#243447;
+  --gold:#C9943A;--gold2:#DFB05C;--gold-pale:#FBF4E8;--gold-mid:#F5E4C3;
+  --teal:#1E9E8A;--teal-pale:#E4F5F2;
+  --rose:#C94040;--rose-pale:#FAEAEA;
+  --sage:#3A8A5C;--sage-pale:#E6F3EC;
+  --slate:#5A6A7A;--slate2:#8A9AAA;--slate3:#BCC8D4;
+  --bg:#F5F3EF;--paper:#FFFDF9;--white:#FFFFFF;
+  --border:#E0D8CC;--border2:#C8BDB0;
+  --text:#1A2530;--text2:#3D4F5F;--text3:#6A7F8F;
+  --r:10px;--r-sm:6px;--r-lg:16px;--r-xl:22px;
+}
+body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;line-height:1.6}
+h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+/* ────────────── SCREENS ────────────── */
+.screen{display:none;min-height:100vh}
+.screen.active{display:block}
+#course{display:none}
+#course.active{display:flex;min-height:100vh}
+
+/* ────────────── WELCOME ────────────── */
+#welcome{background:var(--ink);position:relative;overflow:hidden}
+.w-pattern{position:absolute;inset:0;opacity:0.04;background-image:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 50%);background-size:20px 20px}
+.w-glow{position:absolute;top:-200px;right:-100px;width:600px;height:600px;background:radial-gradient(circle,rgba(201,148,58,0.15),transparent 70%);pointer-events:none}
+.w-glow2{position:absolute;bottom:-200px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(30,158,138,0.1),transparent 70%);pointer-events:none}
+.w-inner{position:relative;z-index:1;max-width:1000px;margin:0 auto;padding:70px 48px;min-height:100vh;display:flex;flex-direction:column;justify-content:center}
+.w-eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(201,148,58,0.35);color:var(--gold2);padding:5px 16px;border-radius:50px;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:28px}
+.w-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.w-h1{font-size:clamp(44px,6vw,80px);font-weight:900;color:#fff;line-height:1.0;letter-spacing:-1px;margin-bottom:8px}
+.w-h1 em{font-style:italic;color:var(--gold2)}
+.w-sub{font-size:19px;color:rgba(255,255,255,0.5);line-height:1.7;max-width:560px;margin-bottom:44px;font-weight:300}
+.w-stats{display:flex;gap:48px;margin-bottom:52px;flex-wrap:wrap}
+.w-stat-n{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--gold2);display:block}
+.w-stat-l{font-size:12px;color:rgba(255,255,255,0.35);letter-spacing:0.5px;margin-top:2px;display:block}
+.btn-start{display:inline-flex;align-items:center;gap:12px;background:var(--gold);color:var(--ink);padding:15px 40px;border-radius:50px;font-family:'Playfair Display',serif;font-weight:700;font-size:17px;border:none;cursor:pointer;transition:all 0.2s;letter-spacing:0.2px}
+.btn-start:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 32px rgba(201,148,58,0.3)}
+.w-chapters{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin-top:60px}
+.w-ch{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:var(--r-sm);padding:12px 14px;display:flex;align-items:flex-start;gap:10px}
+.w-ch-n{font-family:'Playfair Display',serif;font-size:11px;color:rgba(201,148,58,0.5);font-weight:700;letter-spacing:1px;padding-top:1px;flex-shrink:0}
+.w-ch-t{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.35}
+
+/* ────────────── SIDEBAR ────────────── */
+.sidebar{width:272px;background:var(--ink2);flex-shrink:0;display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto;z-index:50}
+.sidebar::-webkit-scrollbar{width:3px}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.08);border-radius:2px}
+.sb-head{padding:22px 20px 18px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.sb-logo{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#fff}
+.sb-logo span{color:var(--gold2)}
+.sb-prog-wrap{margin-top:14px}
+.sb-prog-labels{display:flex;justify-content:space-between;font-size:11px;color:rgba(255,255,255,0.3);margin-bottom:6px}
+.sb-prog-bar{height:2px;background:rgba(255,255,255,0.07);border-radius:1px}
+.sb-prog-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--teal));border-radius:1px;transition:width 0.5s ease}
+.sb-nav{padding:8px 0;flex:1}
+.nav-item{display:flex;align-items:center;gap:11px;padding:9px 20px;cursor:pointer;transition:all 0.15s;border-left:2px solid transparent;position:relative}
+.nav-item:hover{background:rgba(255,255,255,0.03)}
+.nav-item.active{background:rgba(201,148,58,0.07);border-left-color:var(--gold)}
+.nav-n{font-size:10px;font-weight:600;color:rgba(255,255,255,0.2);letter-spacing:1px;min-width:22px;font-family:'Source Sans 3',sans-serif}
+.nav-item.active .nav-n{color:var(--gold)}
+.nav-t{font-size:13px;color:rgba(255,255,255,0.38);line-height:1.3}
+.nav-item.active .nav-t{color:rgba(255,255,255,0.82)}
+.nav-item.done .nav-t{color:rgba(255,255,255,0.48)}
+.nav-ck{margin-left:auto;width:16px;height:16px;border-radius:50%;background:var(--sage);display:none;align-items:center;justify-content:center;flex-shrink:0}
+.nav-item.done .nav-ck{display:flex}
+.nav-ck svg{width:8px;height:8px;stroke:#fff;stroke-width:3;fill:none}
+
+/* ────────────── MAIN ────────────── */
+.main-area{flex:1;overflow-y:auto;min-width:0;background:var(--bg)}
+.main-area::-webkit-scrollbar{width:5px}
+.main-area::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
+.chapter{display:none;padding:44px 52px;max-width:900px;margin:0 auto}
+.chapter.active{display:block}
+
+/* ────────────── CHAPTER HEADER ────────────── */
+.ch-hdr{margin-bottom:40px;padding-bottom:32px;border-bottom:2px solid var(--border)}
+.ch-meta-row{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.ch-week-badge{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);background:var(--gold-pale);border:1px solid var(--gold-mid);padding:3px 12px;border-radius:50px}
+.ch-level{font-size:11px;color:var(--text3);letter-spacing:0.5px}
+.ch-title{font-size:clamp(26px,3.5vw,40px);font-weight:700;color:var(--ink);line-height:1.1;letter-spacing:-0.3px;margin-bottom:10px}
+.ch-focus{font-size:15px;color:var(--text2);line-height:1.65;max-width:640px;margin-bottom:14px}
+.ch-pills{display:flex;gap:7px;flex-wrap:wrap}
+.ch-pill{font-size:12px;color:var(--teal);background:var(--teal-pale);padding:4px 12px;border-radius:50px;font-weight:500}
+
+/* ────────────── SECTION ────────────── */
+.sec{margin-bottom:44px}
+.sec-hdr{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.sec-num{width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--gold2);font-family:'Playfair Display',serif;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sec-title{font-size:20px;font-weight:700;color:var(--ink);letter-spacing:-0.2px}
+.sec-sub{font-size:14px;color:var(--text3);font-style:italic;margin-left:42px;margin-top:-10px;margin-bottom:14px}
+
+/* ────────────── PROSE ────────────── */
+.prose{font-size:15px;line-height:1.78;color:var(--text2);margin-bottom:14px}
+.prose strong{color:var(--text);font-weight:600}
+.prose em{color:var(--slate)}
+
+/* ────────────── READING BLOCK ────────────── */
+.reading{background:var(--paper);border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:var(--r);padding:20px 22px;margin:18px 0}
+.reading-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.reading-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--ink);margin-bottom:10px}
+.reading p{font-size:14px;line-height:1.78;color:var(--text2);margin-bottom:10px}
+.reading p:last-child{margin-bottom:0}
+
+/* ────────────── VOCAB TABLE ────────────── */
+.vocab-tbl{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;background:var(--paper);border-radius:var(--r);overflow:hidden;border:1px solid var(--border)}
+.vocab-tbl thead tr{background:var(--ink)}
+.vocab-tbl thead th{color:rgba(255,255,255,0.75);font-family:'Playfair Display',serif;font-size:12px;font-weight:600;letter-spacing:0.5px;padding:10px 14px;text-align:left}
+.vocab-tbl tbody td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text2);vertical-align:top}
+.vocab-tbl tbody tr:last-child td{border-bottom:none}
+.vocab-tbl tbody tr:hover td{background:var(--gold-pale)}
+.vocab-tbl .term{font-weight:600;color:var(--ink);font-size:13px}
+.vocab-tbl .example{font-style:italic;color:var(--teal);font-size:13px}
+
+/* ────────────── VOCAB CARDS (for essential vocab) ────────────── */
+.vocab-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin:16px 0}
+.vc{background:var(--paper);border:1px solid var(--border);border-radius:var(--r);padding:15px;transition:box-shadow 0.18s}
+.vc:hover{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
+.vc-term{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:5px}
+.vc-def{font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px}
+.vc-ex{font-size:12px;color:var(--teal);font-style:italic;background:var(--teal-pale);padding:7px 10px;border-radius:var(--r-sm);line-height:1.5}
+
+/* ────────────── PHRASE BOX ────────────── */
+.pbox{background:var(--paper);border:1px solid var(--border);border-radius:var(--r);padding:18px 20px;margin:14px 0}
+.pbox-title{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.pbox-title::after{content:'';flex:1;height:1px;background:var(--border)}
+.phrases{display:flex;flex-direction:column;gap:7px}
+.ph{display:flex;gap:10px;font-size:14px;color:var(--text2);line-height:1.55;padding:7px 0;border-bottom:1px solid var(--border)}
+.ph:last-child{border-bottom:none;padding-bottom:0}
+.ph::before{content:'›';color:var(--gold);font-weight:700;flex-shrink:0;font-size:16px;line-height:1.4}
+.ph em{color:var(--teal);font-style:normal;font-weight:500}
+.ph strong{color:var(--ink);font-weight:600}
+
+/* ────────────── CALLOUT ────────────── */
+.callout{display:flex;gap:13px;padding:14px 18px;border-radius:var(--r);margin:14px 0;align-items:flex-start}
+.callout.tip{background:var(--gold-pale);border-left:3px solid var(--gold)}
+.callout.note{background:var(--teal-pale);border-left:3px solid var(--teal)}
+.callout.warn{background:var(--rose-pale);border-left:3px solid var(--rose)}
+.callout.sage{background:var(--sage-pale);border-left:3px solid var(--sage)}
+.callout-ico{font-size:15px;flex-shrink:0;margin-top:1px}
+.callout-body{font-size:14px;color:var(--text2);line-height:1.65}
+.callout-body strong{color:var(--text);font-weight:600}
+
+/* ────────────── COMPARE TABLE ────────────── */
+.cmp-tbl{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px;border-radius:var(--r);overflow:hidden;border:1px solid var(--border)}
+.cmp-tbl thead tr{background:var(--ink3)}
+.cmp-tbl thead th{color:rgba(255,255,255,0.75);font-size:12px;font-weight:600;letter-spacing:0.5px;padding:10px 14px;text-align:left}
+.cmp-tbl tbody td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text2);background:var(--paper);vertical-align:top}
+.cmp-tbl tbody tr:last-child td{border-bottom:none}
+.cmp-tbl tbody tr:nth-child(even) td{background:var(--bg)}
+
+/* ────────────── DIALOGUE ────────────── */
+.dialogue{background:var(--paper);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px;margin:16px 0}
+.dial-turn{display:flex;gap:11px;margin-bottom:13px}
+.dial-turn:last-child{margin-bottom:0}
+.dial-turn.r{flex-direction:row-reverse}
+.dial-av{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;font-family:'Playfair Display',serif}
+.dial-turn.l .dial-av{background:var(--teal-pale);color:var(--teal)}
+.dial-turn.r .dial-av{background:var(--gold-pale);color:var(--gold)}
+.dial-content{flex:1}
+.dial-name{font-size:11px;font-weight:600;color:var(--text3);margin-bottom:4px}
+.dial-turn.r .dial-name{text-align:right}
+.dial-bubble{padding:10px 14px;border-radius:12px;font-size:14px;line-height:1.6;display:inline-block;max-width:400px}
+.dial-turn.l .dial-bubble{background:var(--bg);border:1px solid var(--border);color:var(--text2);border-top-left-radius:3px}
+.dial-turn.r .dial-bubble{background:var(--ink);color:rgba(255,255,255,0.82);border-top-right-radius:3px}
+
+/* ────────────── STAR ────────────── */
+.star-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:10px;margin:14px 0}
+.star-cell{padding:16px;border-radius:var(--r);text-align:center}
+.star-cell.S{background:var(--teal-pale)}
+.star-cell.T{background:var(--gold-pale)}
+.star-cell.A{background:var(--rose-pale)}
+.star-cell.R{background:var(--sage-pale)}
+.star-letter{font-family:'Playfair Display',serif;font-size:30px;font-weight:900;margin-bottom:3px}
+.star-cell.S .star-letter{color:var(--teal)}
+.star-cell.T .star-letter{color:var(--gold)}
+.star-cell.A .star-letter{color:var(--rose)}
+.star-cell.R .star-letter{color:var(--sage)}
+.star-word{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:5px}
+.star-desc{font-size:12px;color:var(--text2);line-height:1.5}
+
+/* ────────────── SCENARIO ────────────── */
+.scenario{background:linear-gradient(135deg,var(--ink),var(--ink3));border-radius:var(--r-lg);padding:22px 24px;margin:18px 0}
+.sc-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);margin-bottom:8px}
+.sc-text{font-size:14px;line-height:1.72;color:rgba(255,255,255,0.7);margin-bottom:14px}
+.sc-text em{color:var(--gold2);font-style:italic}
+.sc-divider{border-top:1px solid rgba(255,255,255,0.08);padding-top:14px;margin-top:14px}
+.sc-task-label{font-size:12px;color:var(--gold2);font-weight:600;margin-bottom:8px}
+.sc-steps{display:flex;flex-direction:column;gap:7px}
+.sc-step{display:flex;gap:10px;font-size:13px;color:rgba(255,255,255,0.6);line-height:1.5}
+.sc-step span:first-child{color:var(--gold2);font-weight:700;flex-shrink:0;min-width:16px}
+
+/* ────────────── EXERCISE BOX ────────────── */
+.exbox{background:var(--paper);border:1px solid var(--border);border-radius:var(--r-lg);padding:22px 24px;margin:20px 0;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+.ex-hdr{display:flex;align-items:center;gap:10px;margin-bottom:5px}
+.ex-badge{background:var(--ink);color:var(--gold2);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:50px}
+.ex-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--ink)}
+.ex-sub{font-size:13px;color:var(--text3);margin-bottom:18px;line-height:1.55}
+
+/* ────────────── QUIZ ────────────── */
+.qwrap{margin-bottom:22px;padding-bottom:22px;border-bottom:1px solid var(--border)}
+.qwrap:last-of-type{border-bottom:none;padding-bottom:0}
+.q-txt{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:11px;line-height:1.5}
+.q-opts{display:flex;flex-direction:column;gap:7px}
+.qopt{display:flex;align-items:flex-start;gap:10px;padding:10px 13px;border:1px solid var(--border);border-radius:var(--r-sm);cursor:pointer;font-size:14px;color:var(--text2);transition:all 0.15s;line-height:1.45}
+.qopt:hover:not(.locked){border-color:var(--gold);background:var(--gold-pale)}
+.qopt.sel{border-color:var(--gold);background:var(--gold-pale);color:var(--ink)}
+.qopt.ok{border-color:var(--sage)!important;background:var(--sage-pale)!important;color:#285C3C}
+.qopt.bad{border-color:var(--rose)!important;background:var(--rose-pale)!important;color:#7A2020}
+.q-dot{width:16px;height:16px;border-radius:50%;border:1.5px solid var(--border2);flex-shrink:0;margin-top:1px;transition:all 0.15s}
+.qopt.sel .q-dot,.qopt.ok .q-dot{border-color:var(--sage);background:var(--sage)}
+.qopt.bad .q-dot{border-color:var(--rose);background:var(--rose)}
+.q-fb{display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:var(--r-sm);line-height:1.5}
+.q-fb.show{display:block}
+.q-fb.ok-fb{background:var(--sage-pale);color:#285C3C}
+.q-fb.bad-fb{background:var(--rose-pale);color:#7A2020}
+.locked{pointer-events:none}
+
+/* ────────────── FILL-IN ────────────── */
+.fill-g{margin-bottom:16px}
+.fill-lbl{font-size:13px;color:var(--text2);margin-bottom:6px;line-height:1.5}
+.fill-lbl strong{color:var(--ink)}
+.fill-row{display:flex;gap:8px;align-items:center}
+.fill-inp{flex:1;padding:9px 13px;border:1px solid var(--border2);border-radius:var(--r-sm);font-family:'Source Sans 3',sans-serif;font-size:14px;color:var(--text);background:var(--bg);transition:border 0.15s}
+.fill-inp:focus{outline:none;border-color:var(--gold);background:var(--paper)}
+.fill-inp.ok{border-color:var(--sage);background:var(--sage-pale)}
+.fill-inp.bad{border-color:var(--rose);background:var(--rose-pale)}
+.fill-hint{font-size:12px;color:var(--text3);margin-top:4px;font-style:italic}
+
+/* ────────────── MATCH ────────────── */
+.match-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+.match-col-lbl{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text3);margin-bottom:8px}
+.mitem{padding:10px 13px;border:1px solid var(--border);border-radius:var(--r-sm);font-size:13px;color:var(--text2);cursor:pointer;transition:all 0.15s;line-height:1.45;margin-bottom:7px;background:var(--paper)}
+.mitem:last-child{margin-bottom:0}
+.mitem:hover:not(.matched):not(.bad-match){border-color:var(--gold);background:var(--gold-pale)}
+.mitem.sel-l{border-color:var(--gold);background:var(--gold-pale);color:var(--ink)}
+.mitem.matched{border-color:var(--sage);background:var(--sage-pale);color:#285C3C;cursor:default}
+.mitem.bad-match{border-color:var(--rose);background:var(--rose-pale)}
+.match-result{margin-top:10px;font-size:13px;color:var(--text3);min-height:20px}
+
+/* ────────────── SWOT ────────────── */
+.swot{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:16px 0;border-radius:var(--r);overflow:hidden;border:2px solid var(--border)}
+.swot-cell{padding:18px 20px}
+.swot-cell.S{background:#EAF5FB}.swot-cell.W{background:var(--rose-pale)}.swot-cell.O{background:var(--sage-pale)}.swot-cell.T{background:var(--gold-pale)}
+.swot-lbl{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:3px}
+.swot-cell.S .swot-lbl{color:#1665A0}.swot-cell.W .swot-lbl{color:var(--rose)}.swot-cell.O .swot-lbl{color:var(--sage)}.swot-cell.T .swot-lbl{color:var(--gold)}
+.swot-name{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:7px}
+.swot-body{font-size:13px;color:var(--text2);line-height:1.65}
+textarea.swot-inp{width:100%;border:1px dashed var(--border2);border-radius:var(--r-sm);padding:8px;font-family:'Source Sans 3',sans-serif;font-size:13px;color:var(--text2);background:rgba(255,255,255,0.55);resize:vertical;min-height:70px;margin-top:8px}
+textarea.swot-inp:focus{outline:none;border-color:var(--gold);background:var(--white)}
+
+/* ────────────── REVIEW ────────────── */
+.review{background:var(--ink2);border-radius:var(--r-lg);padding:26px 28px;margin-top:32px}
+.rev-title{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);margin-bottom:16px}
+.rev-items{display:flex;flex-direction:column;gap:9px}
+.rev-item{display:flex;gap:11px;align-items:flex-start}
+.rev-ico{width:20px;height:20px;border-radius:50%;background:rgba(201,148,58,0.12);flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center}
+.rev-ico svg{width:9px;height:9px;stroke:var(--gold2);stroke-width:3;fill:none}
+.rev-txt{font-size:14px;color:rgba(255,255,255,0.58);line-height:1.55}
+.rev-txt strong{color:rgba(255,255,255,0.88)}
+
+/* ────────────── COMPLETE ────────────── */
+.complete-wrap{text-align:center;margin-top:28px;padding:22px;border:1.5px dashed var(--border2);border-radius:var(--r-lg)}
+.complete-note{font-size:13px;color:var(--text3);margin-bottom:12px}
+.btn-complete{display:inline-flex;align-items:center;gap:8px;padding:11px 30px;background:var(--sage);color:#fff;border:none;border-radius:50px;font-family:'Playfair Display',serif;font-size:14px;font-weight:700;cursor:pointer;transition:all 0.18s}
+.btn-complete:hover{background:#2E7048;transform:translateY(-1px)}
+.btn-complete.done{opacity:0.55;cursor:default;transform:none}
+
+/* ────────────── CHAPTER NAV ────────────── */
+.ch-nav{display:flex;justify-content:space-between;align-items:center;margin-top:44px;padding-top:22px;border-top:1px solid var(--border)}
+.btn-nav{display:inline-flex;align-items:center;gap:7px;padding:9px 22px;border-radius:50px;font-size:13px;font-weight:600;border:1.5px solid var(--border2);background:var(--paper);color:var(--text2);cursor:pointer;transition:all 0.15s;font-family:'Source Sans 3',sans-serif}
+.btn-nav:hover{border-color:var(--ink);color:var(--ink)}
+.btn-nav.prim{background:var(--ink);color:var(--gold2);border-color:var(--ink)}
+.btn-nav.prim:hover{background:var(--ink3)}
+.btn-nav:disabled{opacity:0.3;cursor:not-allowed}
+.ch-nav-info{font-size:13px;color:var(--text3)}
+
+/* ────────────── CHECK BUTTON ────────────── */
+.btn-check{display:inline-flex;align-items:center;gap:7px;padding:9px 24px;background:var(--gold);color:var(--ink);border:none;border-radius:50px;font-size:13px;font-weight:700;cursor:pointer;transition:all 0.15s;margin-top:16px;font-family:'Source Sans 3',sans-serif}
+.btn-check:hover{background:var(--gold2)}
+.qscore{display:none;margin-top:14px;text-align:center;padding:18px;background:var(--gold-pale);border-radius:var(--r);border:1px solid var(--gold-mid)}
+.qscore-num{font-family:'Playfair Display',serif;font-size:38px;font-weight:900;color:var(--ink)}
+.qscore-lbl{font-size:13px;color:var(--text2);margin-top:4px}
+
+/* ────────────── CELEBRATION ────────────── */
+.celeb-overlay{display:none;position:fixed;inset:0;background:rgba(15,25,35,0.88);z-index:1000;align-items:center;justify-content:center}
+.celeb-overlay.show{display:flex}
+.celeb-card{background:var(--paper);border-radius:var(--r-xl);padding:44px 40px;text-align:center;max-width:400px;width:92%;box-shadow:0 32px 80px rgba(0,0,0,0.3)}
+.celeb-em{font-size:52px;margin-bottom:14px}
+.celeb-title{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--ink);margin-bottom:8px}
+.celeb-sub{font-size:14px;color:var(--text2);margin-bottom:22px;line-height:1.65}
+.celeb-stars{display:flex;justify-content:center;gap:6px;margin-bottom:24px;font-size:22px}
+
+/* ────────────── MOBILE ────────────── */
+.mob-toggle{display:none;position:fixed;top:14px;left:14px;z-index:200;width:40px;height:40px;background:var(--ink);border:none;border-radius:var(--r-sm);cursor:pointer;align-items:center;justify-content:center}
+@media(max-width:820px){
+  .sidebar{position:fixed;left:-272px;top:0;height:100vh;transition:left 0.28s;z-index:100}
+  .sidebar.open{left:0}
+  .mob-toggle{display:flex}
+  .chapter{padding:22px 18px;padding-top:62px}
+  .match-grid,.swot{grid-template-columns:1fr}
+  .star-row{grid-template-columns:1fr 1fr}
+  .w-inner{padding:44px 22px}
+}
+
+/* ────────────── RICH TEXT EXTRAS ────────────── */
+.formula-box{background:var(--ink);color:rgba(255,255,255,0.82);border-radius:var(--r);padding:20px 22px;margin:14px 0}
+.formula-title{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);margin-bottom:12px}
+.formula-steps{display:flex;flex-direction:column;gap:8px}
+.formula-step{display:flex;gap:12px;font-size:14px;line-height:1.55}
+.formula-num{color:var(--gold2);font-weight:700;font-family:'Playfair Display',serif;min-width:20px}
+
+.tip-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:14px 0}
+.tip-card{background:var(--paper);border:1px solid var(--border);border-radius:var(--r);padding:14px;border-top:3px solid var(--gold)}
+.tip-card-title{font-size:12px;font-weight:700;color:var(--gold);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:6px}
+.tip-card-body{font-size:13px;color:var(--text2);line-height:1.55}
+
+.example-block{background:var(--gold-pale);border:1px solid var(--gold-mid);border-radius:var(--r);padding:16px 18px;margin:12px 0}
+.example-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
+.example-text{font-size:14px;line-height:1.7;color:var(--text2);font-style:italic}
+.example-text strong{font-style:normal;color:var(--ink);font-weight:600}
+
+.safe-unsafe{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.safe-col{border-radius:var(--r);padding:14px 16px}
+.safe-col.safe{background:var(--sage-pale);border:1px solid #A8D5B8}
+.safe-col.unsafe{background:var(--rose-pale);border:1px solid #E8BABA}
+.safe-col-title{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:9px}
+.safe-col.safe .safe-col-title{color:var(--sage)}
+.safe-col.unsafe .safe-col-title{color:var(--rose)}
+.safe-item{font-size:13px;color:var(--text2);padding:3px 0;display:flex;gap:6px;align-items:flex-start;line-height:1.45}
+.safe-item::before{flex-shrink:0;margin-top:1px}
+.safe-col.safe .safe-item::before{content:'✓';color:var(--sage);font-weight:700}
+.safe-col.unsafe .safe-item::before{content:'✗';color:var(--rose);font-weight:700}
+
+.rag-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:14px 0}
+.rag-cell{padding:16px;border-radius:var(--r)}
+.rag-cell.G{background:var(--sage-pale);border:1px solid #A8D5B8}
+.rag-cell.A{background:var(--gold-pale);border:1px solid var(--gold-mid)}
+.rag-cell.R{background:var(--rose-pale);border:1px solid #E8BABA}
+.rag-dot{width:14px;height:14px;border-radius:50%;margin-bottom:8px}
+.rag-cell.G .rag-dot{background:var(--sage)}.rag-cell.A .rag-dot{background:var(--gold)}.rag-cell.R .rag-dot{background:var(--rose)}
+.rag-head{font-size:12px;font-weight:700;color:var(--ink);margin-bottom:5px}
+.rag-text{font-size:13px;color:var(--text2);line-height:1.55;font-style:italic}
+
+.vap-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
+.vap-cell{padding:16px;border-radius:var(--r);text-align:center}
+.vap-cell.V{background:var(--teal-pale)}.vap-cell.A{background:var(--gold-pale)}.vap-cell.P{background:var(--sage-pale)}
+.vap-letter{font-family:'Playfair Display',serif;font-size:32px;font-weight:900}
+.vap-cell.V .vap-letter{color:var(--teal)}.vap-cell.A .vap-letter{color:var(--gold)}.vap-cell.P .vap-letter{color:var(--sage)}
+.vap-word{font-size:12px;font-weight:700;color:var(--ink);margin:3px 0 5px}
+.vap-desc{font-size:12px;color:var(--text2);line-height:1.5}
+
+.culture-tbl{width:100%;border-collapse:collapse;font-size:13px;border-radius:var(--r);overflow:hidden;border:1px solid var(--border);margin:14px 0}
+.culture-tbl th{background:var(--ink);color:rgba(255,255,255,0.75);padding:9px 13px;text-align:left;font-size:11px;letter-spacing:0.5px;font-weight:600}
+.culture-tbl td{padding:9px 13px;border-bottom:1px solid var(--border);color:var(--text2);background:var(--paper);vertical-align:top}
+.culture-tbl tr:last-child td{border-bottom:none}
+.culture-tbl tr:nth-child(even) td{background:var(--bg)}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     WELCOME SCREEN
+═══════════════════════════════════════ -->
+<div id="welcome" class="screen active">
+  <div class="w-pattern"></div><div class="w-glow"></div><div class="w-glow2"></div>
+  <div class="w-inner">
+    <div class="w-eyebrow"><span class="w-dot"></span>10-Week Intensive Program</div>
+    <h1 class="w-h1">GECS Business<br><em>English Mastery</em></h1>
+    <p class="w-sub">A comprehensive roadmap from foundational professional communication to complex negotiation and leadership skills — designed for corporate professionals and career-starters alike.</p>
+    <div class="w-stats">
+      <div><span class="w-stat-n">10</span><span class="w-stat-l">Chapters</span></div>
+      <div><span class="w-stat-n">60+</span><span class="w-stat-l">Interactive Exercises</span></div>
+      <div><span class="w-stat-n">300+</span><span class="w-stat-l">Phrases & Vocabulary</span></div>
+      <div><span class="w-stat-n">∞</span><span class="w-stat-l">Real-World Scenarios</span></div>
+    </div>
+    <button class="btn-start" onclick="startCourse()">Begin the Course <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    <div class="w-chapters">
+      <div class="w-ch"><span class="w-ch-n">01</span><span class="w-ch-t">The Art of Networking</span></div>
+      <div class="w-ch"><span class="w-ch-n">02</span><span class="w-ch-t">Digital Correspondence</span></div>
+      <div class="w-ch"><span class="w-ch-n">03</span><span class="w-ch-t">Dynamic Meetings</span></div>
+      <div class="w-ch"><span class="w-ch-n">04</span><span class="w-ch-t">Data & Presentations</span></div>
+      <div class="w-ch"><span class="w-ch-n">05</span><span class="w-ch-t">The Job Market</span></div>
+      <div class="w-ch"><span class="w-ch-n">06</span><span class="w-ch-t">Negotiation Tactics</span></div>
+      <div class="w-ch"><span class="w-ch-n">07</span><span class="w-ch-t">Conflict & Feedback</span></div>
+      <div class="w-ch"><span class="w-ch-n">08</span><span class="w-ch-t">Project Management</span></div>
+      <div class="w-ch"><span class="w-ch-n">09</span><span class="w-ch-t">Intercultural Competence</span></div>
+      <div class="w-ch"><span class="w-ch-n">10</span><span class="w-ch-t">Business Strategy</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     COURSE SCREEN
+═══════════════════════════════════════ -->
+<div id="course" class="screen">
+  <button class="mob-toggle" onclick="toggleSidebar()">
+    <svg width="18" height="18" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+  </button>
+  <aside class="sidebar" id="sidebar">
+    <div class="sb-head">
+      <div class="sb-logo">GECS <span>Mastery</span></div>
+      <div class="sb-prog-wrap">
+        <div class="sb-prog-labels"><span>Your Progress</span><span id="prog-pct">0%</span></div>
+        <div class="sb-prog-bar"><div class="sb-prog-fill" id="prog-fill" style="width:0%"></div></div>
+      </div>
+    </div>
+    <nav class="sb-nav" id="sb-nav"></nav>
+  </aside>
+  <main class="main-area" id="main-area"></main>
+</div>
+
+<!-- Celebration Overlay -->
+<div class="celeb-overlay" id="celeb">
+  <div class="celeb-card">
+    <div class="celeb-em" id="cel-em">🎉</div>
+    <h2 class="celeb-title" id="cel-title">Chapter Complete!</h2>
+    <p class="celeb-sub" id="cel-sub">Excellent work. Keep building your Business English skills.</p>
+    <div class="celeb-stars">⭐⭐⭐</div>
+    <button class="btn-start" onclick="closeCeleb()">Continue →</button>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════
+// DATA & STATE
+// ═══════════════════════════════════════
+const META=[
+  {id:1,title:"The Art of Networking",week:1,focus:"First Impressions, Small Talk & Elevator Pitches",pills:["Build rapport","Master small talk","Elevator pitch"],level:"Beginner"},
+  {id:2,title:"Digital Correspondence",week:2,focus:"Professional Emails, Teams & Slack Etiquette, Clarity",pills:["Email structure","Tone & register","Active voice"],level:"Beginner–Intermediate"},
+  {id:3,title:"Dynamic Meetings",week:3,focus:"Leading Discussions, Interrupting Politely & Summarizing",pills:["Signposting","Diplomatic interruptions","Meeting vocabulary"],level:"Intermediate"},
+  {id:4,title:"Data & Presentations",week:4,focus:"Describing Trends, Visuals & 'The Hook'",pills:["Trend vocabulary","Data storytelling","Presentation hooks"],level:"Intermediate"},
+  {id:5,title:"The Job Market",week:5,focus:"CVs, LinkedIn Optimization & Interview Techniques",pills:["Action-result formula","STAR method","LinkedIn optimization"],level:"Intermediate"},
+  {id:6,title:"Negotiation Tactics",week:6,focus:"Win-Win Strategies, Bargaining & Closing Deals",pills:["Win-win philosophy","Conditional language","Closing phrases"],level:"Upper-Intermediate"},
+  {id:7,title:"Conflict & Feedback",week:7,focus:"Softening the Blow, Constructive Criticism & EQ",pills:["EQ language","Feedback loop","Conflict resolution"],level:"Upper-Intermediate"},
+  {id:8,title:"Project Management",week:8,focus:"Delegating, Deadlines & Status Updates",pills:["Delegation framework","RAG system","Timeline language"],level:"Intermediate"},
+  {id:9,title:"Intercultural Competence",week:9,focus:"Low-Context vs High-Context Cultures in Business",pills:["Context spectrum","Feedback gap","Cultural adaptation"],level:"Advanced"},
+  {id:10,title:"Business Strategy",week:10,focus:"SWOT Analysis, Case Studies & The Final Pitch",pills:["SWOT framework","Case study language","Final pitch"],level:"Advanced"}
+];
+let completed=new Set(), currentCh=1;
+const matchState={};
+
+// ═══════════════════════════════════════
+// BOOT
+// ═══════════════════════════════════════
+function startCourse(){
+  document.getElementById('welcome').classList.remove('active');
+  const c=document.getElementById('course');
+  c.style.display='flex'; c.classList.add('active');
+  buildSidebar(); buildChapters(); goTo(1);
+}
+function buildSidebar(){
+  document.getElementById('sb-nav').innerHTML=META.map(m=>`
+    <div class="nav-item" id="nav-${m.id}" onclick="goTo(${m.id})">
+      <span class="nav-n">${String(m.id).padStart(2,'0')}</span>
+      <span class="nav-t">${m.title}</span>
+      <span class="nav-ck"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>
+    </div>`).join('');
+}
+function buildChapters(){
+  document.getElementById('main-area').innerHTML=META.map(m=>`<div class="chapter" id="ch-${m.id}">${buildCh(m)}</div>`).join('');
+}
+function buildCh(m){
+  const h=`<div class="ch-hdr">
+    <div class="ch-meta-row"><span class="ch-week-badge">Week ${m.week}</span><span class="ch-level">${m.level}</span></div>
+    <h1 class="ch-title">Chapter ${m.id}: ${m.title}</h1>
+    <p class="ch-focus">${m.focus}</p>
+    <div class="ch-pills">${m.pills.map(p=>`<span class="ch-pill">${p}</span>`).join('')}</div>
+  </div>`;
+  const body=CONTENT[m.id]?CONTENT[m.id]():'';
+  const rev=REVIEWS[m.id]||'';
+  const nav=`<div class="ch-nav">
+    <button class="btn-nav" onclick="goTo(${m.id-1})" ${m.id===1?'disabled':''}>← Previous</button>
+    <span class="ch-nav-info">${m.id} / 10</span>
+    <button class="btn-nav prim" onclick="goTo(${m.id+1})" ${m.id===10?'disabled':''}>Next Chapter →</button>
+  </div>`;
+  const complete=`<div class="complete-wrap">
+    <p class="complete-note">Finished this chapter? Mark it complete to track your progress.</p>
+    <button class="btn-complete" id="cbtn-${m.id}" onclick="markDone(${m.id})">✓ Mark as Complete</button>
+  </div>`;
+  return h+body+`<div class="review">${rev}</div>`+complete+nav;
+}
+
+// ═══════════════════════════════════════
+// NAVIGATION & PROGRESS
+// ═══════════════════════════════════════
+function goTo(id){
+  if(id<1||id>10)return;
+  currentCh=id;
+  document.querySelectorAll('.chapter').forEach(c=>c.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  document.getElementById('ch-'+id).classList.add('active');
+  document.getElementById('nav-'+id).classList.add('active');
+  document.getElementById('main-area').scrollTo({top:0,behavior:'smooth'});
+  document.getElementById('sidebar').classList.remove('open');
+}
+function markDone(id){
+  completed.add(id);
+  const b=document.getElementById('cbtn-'+id);
+  if(b){b.textContent='✓ Completed';b.classList.add('done');}
+  document.getElementById('nav-'+id).classList.add('done');
+  updateProg(); showCeleb(id);
+}
+function updateProg(){
+  const p=Math.round(completed.size/10*100);
+  document.getElementById('prog-fill').style.width=p+'%';
+  document.getElementById('prog-pct').textContent=p+'%';
+}
+function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');}
+
+// ═══════════════════════════════════════
+// CELEBRATION
+// ═══════════════════════════════════════
+const CELEB_DATA=[
+  {e:'🤝',t:'Chapter 1 Complete!',s:'You\'ve mastered the art of first impressions, small talk, and the elevator pitch. You\'re ready to walk into any room.'},
+  {e:'📧',t:'Chapter 2 Complete!',s:'Your digital communication toolkit is now professional, clear, and impactful. No more "digital friction."'},
+  {e:'🎯',t:'Chapter 3 Complete!',s:'You can now lead, navigate, and participate in any business meeting with confidence and diplomacy.'},
+  {e:'📊',t:'Chapter 4 Complete!',s:'Data storytelling is now a core skill. You can turn any spreadsheet into a compelling narrative.'},
+  {e:'💼',t:'Chapter 5 Complete!',s:'Your professional brand is polished. Your CV speaks results, your LinkedIn tells a story, and you\'re interview-ready.'},
+  {e:'🤝',t:'Chapter 6 Complete!',s:'Win-win thinking is now your default. You can advocate for your interests while strengthening relationships.'},
+  {e:'💬',t:'Chapter 7 Complete!',s:'Emotional intelligence is now a professional tool. You can deliver and receive feedback constructively.'},
+  {e:'📋',t:'Chapter 8 Complete!',s:'Project management language is clear, accountable, and results-driven. Your team knows exactly what\'s expected.'},
+  {e:'🌍',t:'Chapter 9 Complete!',s:'You can now navigate cultural differences with sensitivity and intelligence — a rare and valuable skill.'},
+  {e:'🎓',t:'Course Complete — Congratulations!',s:'You have achieved Business English Mastery. You can move seamlessly between casual conversation, high-pressure meetings, and complex cross-cultural negotiations. Well done!'}
+];
+function showCeleb(id){
+  const d=CELEB_DATA[id-1];
+  document.getElementById('cel-em').textContent=d.e;
+  document.getElementById('cel-title').textContent=d.t;
+  document.getElementById('cel-sub').textContent=d.s;
+  document.getElementById('celeb').classList.add('show');
+}
+function closeCeleb(){
+  document.getElementById('celeb').classList.remove('show');
+  if(currentCh<10)goTo(currentCh+1);
+}
+
+// ═══════════════════════════════════════
+// QUIZ & EXERCISE LOGIC
+// ═══════════════════════════════════════
+function selOpt(el){
+  const qid=el.dataset.qid;
+  const grp=document.querySelectorAll(`[data-qid="${qid}"]`);
+  const locked=Array.from(grp).some(g=>g.classList.contains('ok')||g.classList.contains('bad'));
+  if(locked)return;
+  grp.forEach(g=>g.classList.remove('sel'));
+  el.classList.add('sel');
+}
+function checkQuiz(gid){
+  const box=document.getElementById(gid+'-score').closest('.exbox');
+  const questions=box.querySelectorAll('.qwrap');
+  let correct=0;
+  questions.forEach(qw=>{
+    const qid=qw.dataset.question;
+    const opts=qw.querySelectorAll('.qopt');
+    const sel=qw.querySelector('.qopt.sel');
+    if(!sel)return;
+    opts.forEach(o=>o.classList.add('locked'));
+    const isOk=sel.dataset.correct==='true';
+    opts.forEach(o=>{if(o.dataset.correct==='true')o.classList.add('ok');});
+    if(!isOk)sel.classList.add('bad');
+    const fb=document.getElementById(qid+'-fb');
+    if(fb){fb.classList.add('show');if(isOk){fb.className='q-fb show ok-fb';fb.textContent='✓ Correct!';correct++;}else{fb.className='q-fb show bad-fb';fb.textContent='Not quite — the correct answer is highlighted above.';}}
+  });
+  const sc=document.getElementById(gid+'-score');
+  sc.style.display='block';
+  const pct=Math.round(correct/questions.length*100);
+  sc.innerHTML=`<div class="qscore-num">${pct}%</div><div class="qscore-lbl">${correct} of ${questions.length} correct — ${pct>=80?'Excellent work! 🎉':pct>=60?'Good effort. Review the highlighted topics above.':'Keep practising — revisit the lesson content above.'}</div>`;
+}
+function checkFill(id,answers){
+  const inp=document.getElementById(id);
+  if(!inp)return;
+  const val=inp.value.toLowerCase().trim();
+  const hint=document.getElementById(id+'-hint');
+  const ok=answers.some(a=>val.includes(a.toLowerCase()));
+  inp.classList.toggle('ok',ok);
+  inp.classList.toggle('bad',!ok&&val.length>2);
+  if(hint)hint.textContent=ok?'✓ Well done!':val.length>2?'Try again — look at the example phrases above for guidance.':'';
+}
+function checkAllFills(ids,answers){ids.forEach((id,i)=>checkFill(id,answers[i]));}
+
+// MATCH LOGIC
+function selMatch(el,group,side){
+  if(el.classList.contains('matched'))return;
+  if(!matchState[group])matchState[group]={left:null};
+  const st=matchState[group];
+  if(side==='left'){
+    document.querySelectorAll(`[data-mg="${group}"][data-side="left"]`).forEach(e=>{if(!e.classList.contains('matched'))e.classList.remove('sel-l');});
+    st.left=el.dataset.mid; el.classList.add('sel-l');
+  } else {
+    if(!st.left)return;
+    if(st.left===el.dataset.mid){
+      [document.querySelector(`[data-mg="${group}"][data-side="left"][data-mid="${st.left}"]`),el].forEach(e=>{if(e){e.classList.add('matched');e.classList.remove('sel-l');}});
+      st.left=null;
+      const done=document.querySelectorAll(`[data-mg="${group}"].matched`).length/2;
+      const tot=document.querySelectorAll(`[data-mg="${group}"][data-side="left"]`).length;
+      const r=document.getElementById(group+'-res');
+      if(r)r.textContent=done===tot?'✓ All matched correctly! Well done.': `${done} of ${tot} matched.`;
+    } else {
+      el.classList.add('bad-match');
+      setTimeout(()=>el.classList.remove('bad-match'),700);
+    }
+  }
+}
+
+// ═══════════════════════════════════════
+// BUILDER HELPERS
+// ═══════════════════════════════════════
+let _qid=0;
+function Q(question,opts,correctIdx){
+  const id='q'+(++_qid);
+  return `<div class="qwrap" id="${id}-wrap" data-question="${id}">
+    <div class="q-txt">${question}</div>
+    <div class="q-opts">${opts.map((o,i)=>`<div class="qopt" data-qid="${id}" data-correct="${i===correctIdx}" onclick="selOpt(this)"><div class="q-dot"></div>${o}</div>`).join('')}</div>
+    <div class="q-fb" id="${id}-fb"></div>
+  </div>`;
+}
+function FI(id,label,answers){
+  return `<div class="fill-g">
+    <div class="fill-lbl">${label}</div>
+    <div class="fill-row"><input class="fill-inp" id="${id}" placeholder="Type your answer here..." oninput="checkFill('${id}',${JSON.stringify(answers)})"/></div>
+    <div class="fill-hint" id="${id}-hint"></div>
+  </div>`;
+}
+function MI(group,mid,text,side){
+  return `<div class="mitem" data-mg="${group}" data-mid="${mid}" data-side="${side}" onclick="selMatch(this,'${group}','${side}')">${text}</div>`;
+}
+function MATCH(group,lefts,rights){
+  return `<div class="match-grid">
+    <div><div class="match-col-lbl">Phrase / Term</div>${lefts.map((l,i)=>MI(group,String(i),l,'left')).join('')}</div>
+    <div><div class="match-col-lbl">Meaning / Function</div>${rights.map((r,i)=>MI(group,String(i),r,'right')).join('')}</div>
+  </div><div class="match-result" id="${group}-res"></div>`;
+}
+
+// ═══════════════════════════════════════
+// REVIEWS
+// ═══════════════════════════════════════
+function revItem(txt){return `<div class="rev-item"><div class="rev-ico"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div><div class="rev-txt">${txt}</div></div>`;}
+const REVIEWS={
+  1:`<div class="rev-title">Chapter 1 Review</div><div class="rev-items">
+    ${revItem('<strong>Do:</strong> Use active listening and maintain eye contact throughout the conversation.')}
+    ${revItem('<strong>Don\'t:</strong> Monopolize the conversation or check your phone during an interaction.')}
+    ${revItem('<strong>Remember:</strong> Networking is an investment. The goal of the first meeting isn\'t to close a deal — it\'s to earn a second meeting.')}
+    ${revItem('<strong>Golden Rule:</strong> Ask open-ended questions. The best networkers spend more time listening than speaking.')}
+  </div>`,
+  2:`<div class="rev-title">Chapter 2 Review</div><div class="rev-items">
+    ${revItem('<strong>Check:</strong> Does your subject line tell the reader exactly what\'s needed and by when?')}
+    ${revItem('<strong>Check:</strong> Is your "Ask" easy to find — ideally in bullet points near the top?')}
+    ${revItem('<strong>Check:</strong> Is your tone matched to your audience (informal internal vs formal external)?')}
+    ${revItem('<strong>Always:</strong> Prefer the active voice. "I sent the report" beats "The report was sent by me."')}
+  </div>`,
+  3:`<div class="rev-title">Chapter 3 Review</div><div class="rev-items">
+    ${revItem('<strong>Lead:</strong> Use signposting language to keep the group focused and on-agenda.')}
+    ${revItem('<strong>Interject:</strong> Use "soft entry" phrases — never interrupt aggressively.')}
+    ${revItem('<strong>Close:</strong> Never end a meeting without a recap and clearly assigned action items.')}
+    ${revItem('<strong>Tip:</strong> Send the meeting minutes within 24 hours while everything is still fresh.')}
+  </div>`,
+  4:`<div class="rev-title">Chapter 4 Review</div><div class="rev-items">
+    ${revItem('<strong>Start Strong:</strong> Use a Hook in the first 60 seconds — question, statistic, story, or scenario.')}
+    ${revItem('<strong>Be Precise:</strong> Use adverbs (sharply, steadily, dramatically) to give data the context it deserves.')}
+    ${revItem('<strong>Connect:</strong> Always explain the "So What?" — what does the data mean for your audience?')}
+    ${revItem('<strong>Transition:</strong> Use signposting phrases to guide your audience from slide to slide.')}
+  </div>`,
+  5:`<div class="rev-title">Chapter 5 Review</div><div class="rev-items">
+    ${revItem('<strong>CV:</strong> Use action verbs and quantifiable results — not just job duties.')}
+    ${revItem('<strong>LinkedIn:</strong> Your headline should describe your value, not just your job title.')}
+    ${revItem('<strong>Interview:</strong> Use the STAR method to keep answers structured, specific, and results-focused.')}
+    ${revItem('<strong>Never:</strong> Use a fake weakness like "I\'m a perfectionist" — it signals poor self-awareness.')}
+  </div>`,
+  6:`<div class="rev-title">Chapter 6 Review</div><div class="rev-items">
+    ${revItem('<strong>Strategy:</strong> Aim for a Win-Win to preserve the professional relationship long-term.')}
+    ${revItem('<strong>Grammar:</strong> Master If/Then conditionals — they\'re the most powerful negotiation tool.')}
+    ${revItem('<strong>Know your BATNA:</strong> Always know the point at which you\'re willing to walk away.')}
+    ${revItem('<strong>Closing:</strong> Always summarize agreed points before leaving — and follow up in writing.')}
+  </div>`,
+  7:`<div class="rev-title">Chapter 7 Review</div><div class="rev-items">
+    ${revItem('<strong>EQ:</strong> Focus on the impact of the behaviour, not the character of the person.')}
+    ${revItem('<strong>Soften:</strong> Use "I" statements and linguistic buffers to prevent immediate defensiveness.')}
+    ${revItem('<strong>Action:</strong> Always end a feedback session with a clear, agreed "Next Step."')}
+    ${revItem('<strong>Grace:</strong> How you receive feedback is as important as how you deliver it.')}
+  </div>`,
+  8:`<div class="rev-title">Chapter 8 Review</div><div class="rev-items">
+    ${revItem('<strong>Delegate:</strong> Be specific about the "What," "When," and "How" — remove all ambiguity.')}
+    ${revItem('<strong>Update:</strong> Use the RAG system (Green/Amber/Red) to keep status reports concise.')}
+    ${revItem('<strong>Anticipate:</strong> Identify bottlenecks early — before they become Red status issues.')}
+    ${revItem('<strong>Buffer:</strong> Always build a realistic time buffer into project timelines for quality assurance.')}
+  </div>`,
+  9:`<div class="rev-title">Chapter 9 Review</div><div class="rev-items">
+    ${revItem('<strong>Observe:</strong> Before speaking, determine whether the culture values directness or face-saving.')}
+    ${revItem('<strong>Clarify:</strong> In multicultural teams, always summarize in writing to translate implicit into explicit.')}
+    ${revItem('<strong>Adapt:</strong> Style-switching between direct and indirect communication is the core competency.')}
+    ${revItem('<strong>Ask:</strong> Never "Do you understand?" — always ask open questions that invite honest responses.')}
+  </div>`,
+  10:`<div class="rev-title">Chapter 10 Review — The Golden Thread</div><div class="rev-items">
+    ${revItem('<strong>Analyze:</strong> Use SWOT to categorize internal and external factors before any strategic pitch.')}
+    ${revItem('<strong>Evaluate:</strong> Study case studies — the mistakes of others are the cheapest lessons available.')}
+    ${revItem('<strong>Persuade:</strong> Lead with your Value Proposition — the specific problem you solve.')}
+    ${revItem('<strong>Fluidity:</strong> You have now earned Professional Fluidity — the ability to move seamlessly between a coffee chat, a board meeting, and a cross-cultural negotiation.')}
+  </div>`
+};
+
+// ═══════════════════════════════════════
+// ═══════════════════════════════════════
+// CHAPTER CONTENT
+// ═══════════════════════════════════════
+// ═══════════════════════════════════════
+const CONTENT={
+
+// ═══ CHAPTER 1 ═══
+1:()=>`
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">1</div><h2 class="sec-title">The First Impression</h2></div>
+  <div class="reading">
+    <div class="reading-label">Reading</div>
+    <div class="reading-title">The 7-Second Rule</div>
+    <p>In the corporate world, research suggests you have roughly <strong>seven seconds</strong> to make a first impression. This isn't just about your suit; it's about non-verbal communication. A firm handshake (or a professional nod), sustained eye contact, and an open posture signal confidence and reliability.</p>
+    <p>In English-speaking business cultures, <strong>"breaking the ice"</strong> effectively sets the tone for the entire professional relationship. Before you say a single word, your body has already communicated your level of confidence and approachability.</p>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:16px;color:var(--ink);margin:18px 0 10px">Key Vocabulary</h3>
+  <table class="vocab-tbl">
+    <thead><tr><th>Term</th><th>Definition</th><th>Context Example</th></tr></thead>
+    <tbody>
+      <tr><td class="term">To break the ice</td><td>To start a conversation in a social setting.</td><td class="example">"I told a quick joke to break the ice before the meeting."</td></tr>
+      <tr><td class="term">Rapport</td><td>A close and harmonious relationship.</td><td class="example">"It's important to build rapport with clients early on."</td></tr>
+      <tr><td class="term">Approachability</td><td>The quality of being easy to talk to.</td><td class="example">"His open body language increased his approachability."</td></tr>
+      <tr><td class="term">Non-verbal cues</td><td>Communication without words (gestures, posture).</td><td class="example">"Pay attention to non-verbal cues during the interview."</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:16px;color:var(--ink);margin:18px 0 10px">Essential Vocabulary</h3>
+  <div class="vocab-cards">
+    <div class="vc"><div class="vc-term">Elevator Pitch</div><div class="vc-def">A concise summary of your background and value proposition (30–60 seconds).</div><div class="vc-ex">"She delivered a flawless elevator pitch to the CEO in the lift."</div></div>
+    <div class="vc"><div class="vc-term">To touch base</div><div class="vc-def">To briefly make contact with someone.</div><div class="vc-ex">"Let's touch base on Friday to see where things stand."</div></div>
+    <div class="vc"><div class="vc-term">Open-ended questions</div><div class="vc-def">Questions that require more than a "yes" or "no" answer.</div><div class="vc-ex">"How did you get started in this industry?" is open-ended.</div></div>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:16px;color:var(--ink);margin:18px 0 10px">Formal Greeting Phrases</h3>
+  <div class="pbox">
+    <div class="pbox-title">Professional Greetings</div>
+    <div class="phrases">
+      <div class="ph"><em>"Good morning/afternoon/evening, esteemed colleagues, clients, and partners."</em></div>
+      <div class="ph"><em>"Welcome, esteemed guests — it's an honour to have you with us today."</em></div>
+      <div class="ph"><em>"A warm welcome to all attendees. Thank you for joining us."</em></div>
+      <div class="ph"><em>"Good [morning/afternoon], ladies and gentlemen — it's a pleasure to see you all."</em></div>
+      <div class="ph"><em>"Greetings and a heartfelt welcome to all participants. We're delighted to have you here."</em></div>
+      <div class="ph"><em>"Hello and a very good [morning/afternoon/evening] to each and every one of you."</em></div>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">2</div><h2 class="sec-title">Mastering Small Talk</h2></div>
+  <p class="prose">Small talk is the <strong>"social glue"</strong> of business. It allows you to find common ground before diving into "shop talk" (work-related topics). The key is choosing the right topics and knowing how to keep a conversation flowing naturally.</p>
+
+  <div class="pbox">
+    <div class="pbox-title">Strategic Topics for Small Talk</div>
+    <div class="phrases">
+      <div class="ph"><strong>The Event/Venue:</strong> <em>"How are you enjoying the conference so far?"</em></div>
+      <div class="ph"><strong>Travel/Location:</strong> <em>"Did you have any trouble finding the office?"</em></div>
+      <div class="ph"><strong>Industry News:</strong> <em>"Have you seen the latest headlines regarding the merger?"</em></div>
+      <div class="ph"><strong>Weekend/Shared experiences:</strong> <em>"Did you catch the game last night?"</em> / <em>"What a turn-out for this event!"</em></div>
+    </div>
+  </div>
+
+  <div class="safe-unsafe">
+    <div class="safe-col safe">
+      <div class="safe-col-title">✓ Safe Topics</div>
+      <div class="safe-item">Weather & travel</div>
+      <div class="safe-item">The event or venue</div>
+      <div class="safe-item">Industry news & trends</div>
+      <div class="safe-item">Weekend plans</div>
+      <div class="safe-item">Professional interests</div>
+    </div>
+    <div class="safe-col unsafe">
+      <div class="safe-col-title">✗ Avoid — The Three Ps</div>
+      <div class="safe-item">Politics</div>
+      <div class="safe-item">Personal finances</div>
+      <div class="safe-item">Private health issues</div>
+      <div class="safe-item">Controversial opinions</div>
+      <div class="safe-item">Religion</div>
+    </div>
+  </div>
+
+  <div class="exbox">
+    <div class="ex-hdr"><span class="ex-badge">EXERCISE</span><h3 class="ex-title">The Open-Ended Challenge</h3></div>
+    <p class="ex-sub">Closed questions kill conversations. Rewrite each closed question into an open-ended question that invites a fuller, more engaging response. Type your answer and see instant feedback.</p>
+    ${FI('fi1_1','<strong>Closed:</strong> "Do you like your job?"',['enjoy','love','find','experience','feel','think about','what do you'])}
+    ${FI('fi1_2','<strong>Closed:</strong> "Is this your first time in London?"',['experience','tell me','journey','brought you','how long','what\'s it been'])}
+    ${FI('fi1_3','<strong>Closed:</strong> "Was the flight good?"',['how was','journey','travel','trip','flight been','getting here'])}
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">3</div><h2 class="sec-title">The Elevator Pitch</h2></div>
+  <p class="prose">An elevator pitch is a concise, practiced statement that summarizes who you are, what you do, and what value you bring — all in the time it takes to ride an elevator (30–60 seconds). It is the single most important piece of business self-presentation.</p>
+
+  <div class="formula-box">
+    <div class="formula-title">The 4-Part Formula</div>
+    <div class="formula-steps">
+      <div class="formula-step"><span class="formula-num">1.</span><span><strong>The Hook:</strong> Who are you? State your name and your professional identity.</span></div>
+      <div class="formula-step"><span class="formula-num">2.</span><span><strong>The Problem/Need:</strong> What gap do you fill? What challenge does your work address?</span></div>
+      <div class="formula-step"><span class="formula-num">3.</span><span><strong>The Solution:</strong> What do you actually do, and what results does it produce?</span></div>
+      <div class="formula-step"><span class="formula-num">4.</span><span><strong>The CTA (Call to Action):</strong> What do you want to happen next? Ask for a meeting, a coffee, or a follow-up.</span></div>
+    </div>
+  </div>
+
+  <div class="example-block">
+    <div class="example-label">Example Elevator Pitch</div>
+    <div class="example-text">"Hi, I'm Sarah. I specialize in <strong>supply chain optimization</strong> for mid-sized retailers. Currently, I'm helping firms reduce their overhead by <strong>15%</strong> through automated inventory tracking. I'd love to learn more about how your team handles logistics — do you have a moment for a coffee next week?"</div>
+  </div>
+
+  <div class="pbox">
+    <div class="pbox-title">Your Pitch Template — Fill in the Blanks</div>
+    <div class="phrases">
+      <div class="ph"><em>"Hi, I'm [Name]. I work as a [Job Title] at [Company]."</em></div>
+      <div class="ph"><em>"Currently, I'm focusing on [Current Project/Challenge in the market]."</em></div>
+      <div class="ph"><em>"My goal is to [Objective/Value you deliver]."</em></div>
+      <div class="ph"><em>"I'd love to hear more about how you handle [Industry Challenge] — could we grab a coffee?"</em></div>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">4</div><h2 class="sec-title">Business Communication in Practice</h2></div>
+  <p class="prose">Effective business communication means being able to discuss your professional journey — past experiences, current role, and future aspirations — using precise, business-relevant language.</p>
+  <div class="reading">
+    <div class="reading-label">Model Text</div>
+    <div class="reading-title">Discussing Past Work Experiences & Dream Jobs</div>
+    <p>In reflecting on my past work experiences, I've gained invaluable insights into the intricacies of business operations. Whether analysing market trends, devising strategic plans, or fostering collaborative relationships, I've consistently leveraged a business-centric vocabulary to articulate ideas and drive initiatives forward.</p>
+    <p>For instance, in my role as a marketing intern at [Company Name], I spearheaded market research initiatives, utilizing terms such as <strong>ROI, KPIs</strong>, and <strong>target demographics</strong> to formulate data-driven strategies that yielded tangible results. This experience underscored the significance of effective communication within the business realm.</p>
+    <p>Looking ahead, my dream job encompasses a multifaceted role within a dynamic business environment — one where I can leverage my analytical prowess and strategic acumen to drive organizational growth and innovation, whether that's through crafting compelling business proposals, optimizing operational processes, or spearheading cross-functional initiatives.</p>
+  </div>
+
+  <div class="pbox">
+    <div class="pbox-title">Useful Phrases for Discussing Your Professional Journey</div>
+    <div class="phrases">
+      <div class="ph"><em>"I have cultivated a strong foundation in [field] through..."</em></div>
+      <div class="ph"><em>"I have consistently leveraged [skill] to articulate ideas and drive initiatives forward."</em></div>
+      <div class="ph"><em>"This experience underscored the significance of effective communication."</em></div>
+      <div class="ph"><em>"I am eager to immerse myself in challenging yet rewarding endeavours that align with my passion for..."</em></div>
+      <div class="ph"><em>"My goal is to make meaningful contributions that resonate with the overarching mission of the organization."</em></div>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">5</div><h2 class="sec-title">Vocabulary Match-Up</h2></div>
+  <div class="exbox">
+    <div class="ex-hdr"><span class="ex-badge">MATCH</span><h3 class="ex-title">Phrases to Functions</h3></div>
+    <p class="ex-sub">Click a phrase on the left, then click its matching business function on the right.</p>
+    ${MATCH('m1',
+      ['"What brings you to this event?"','"I\'d love to circle back to this."','"I\'m currently focusing on..."','"Let\'s exchange contact details."'],
+      ['Starting small talk','Suggesting a follow-up','Explaining your current role','Closing the conversation']
+    )}
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">6</div><h2 class="sec-title">Quiz: Networking Fundamentals</h2></div>
+  <div class="exbox">
+    <div class="ex-hdr"><span class="ex-badge">QUIZ</span><h3 class="ex-title">Test Your Knowledge</h3></div>
+    <p class="ex-sub">Select the best answer for each question, then submit.</p>
+    ${Q('What is the primary goal of a first networking meeting?',['To close a deal immediately.','To exchange as many business cards as possible.','To earn a second meeting and begin building a relationship.','To present your full CV and work history.'],2)}
+    ${Q('Which topic is considered SAFE for professional small talk?',['Your political views and voting preferences.','Your exact salary and financial situation.','An upcoming industry conference or recent business news.','A colleague\'s personal life or relationship status.'],2)}
+    ${Q('How long should an effective elevator pitch be?',['Ten to fifteen minutes.','Five to seven minutes.','Two to three minutes.','Thirty to sixty seconds.'],3)}
+    ${Q('"To build rapport" most accurately means:',['To negotiate a contract or service agreement.','To establish a close, harmonious, and trusting relationship.','To schedule a formal meeting at the boardroom.','To send a professional follow-up email.'],1)}
+    ${Q('Which is an example of an OPEN-ENDED question?',['"Do you enjoy your work?"','"Is this your first time at this event?"','"Was the conference useful?"','"What has been the most interesting challenge in your role lately?"'],3)}
+    <button class="btn-check" onclick="checkQuiz('ch1q')">Submit Quiz</button>
+    <div class="qscore" id="ch1q-score"></div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">7</div><h2 class="sec-title">Speaking Scenario: The Networking Mixer</h2></div>
+  <div class="scenario">
+    <div class="sc-label">Speaking Task</div>
+    <div class="sc-text">You are at a networking mixer for your industry. A potential partner approaches you and says: <em>"It's a bit crowded in here, isn't it?"</em></div>
+    <div class="sc-divider">
+      <div class="sc-task-label">Your task — respond in three structured steps:</div>
+      <div class="sc-steps">
+        <div class="sc-step"><span>1.</span><span>Respond warmly to the small talk — agree and pivot toward a positive comment.</span></div>
+        <div class="sc-step"><span>2.</span><span>Introduce yourself using your Elevator Pitch (Hook → Problem → Solution → CTA).</span></div>
+        <div class="sc-step"><span>3.</span><span>Ask one open-ended question to hand the conversation back to them.</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="dialogue">
+    <div class="dial-turn r"><div class="dial-av">S</div><div class="dial-content"><div class="dial-name">Stranger</div><div class="dial-bubble">It's a bit crowded in here, isn't it?</div></div></div>
+    <div class="dial-turn l"><div class="dial-av">You</div><div class="dial-content"><div class="dial-name">Your Response (practice aloud)</div><div class="dial-bubble">It really is — great turn-out though! [Introduce yourself with your pitch.] I'm [Name], I specialize in [Field] at [Company]. [Ask open question:] What line of work are you in? / How did you come across this event?</div></div></div>
+  </div>
+  <div class="callout tip"><span class="callout-ico">💡</span><div class="callout-body"><strong>Pro Tip:</strong> The best networkers talk <em>less</em> than they listen. After your pitch, ask a question and let the other person speak for at least 60% of the conversation.</div></div>
+</div>
+`,
+
+// ═══ CHAPTER 2 ═══
+2:()=>`
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">1</div><h2 class="sec-title">The Anatomy of a Professional Email</h2></div>
+  <p class="prose">The average professional receives over <strong>120 emails a day</strong>. To ensure yours is read and acted upon, it must be structured for scannability. Every element of your email serves a specific purpose.</p>
+
+  <div class="formula-box">
+    <div class="formula-title">The Gold Standard Email Structure</div>
+    <div class="formula-steps">
+      <div class="formula-step"><span class="formula-num">1.</span><span><strong>Subject Line:</strong> Specific and action-oriented. E.g., <em>"Action Required: Q3 Budget Review — Deadline Friday"</em></span></div>
+      <div class="formula-step"><span class="formula-num">2.</span><span><strong>Salutation:</strong> Appropriate to the relationship. <em>"Dear Mr. Smith"</em> vs <em>"Hi Sarah"</em></span></div>
+      <div class="formula-step"><span class="formula-num">3.</span><span><strong>The "Why":</strong> State the purpose of your email in the first two sentences.</span></div>
+      <div class="formula-step"><span class="formula-num">4.</span><span><strong>The "Ask":</strong> Use bullet points for multiple questions or tasks. Make it easy to action.</span></div>
+      <div class="formula-step"><span class="formula-num">5.</span><span><strong>Sign-off:</strong> Professional closing. <em>"Best regards," / "Sincerely," / "Kind regards,"</em></span></div>
+    </div>
+  </div>
+
+  <table class="vocab-tbl">
+    <thead><tr><th>Term</th><th>Definition</th><th>Context Example</th></tr></thead>
+    <tbody>
+      <tr><td class="term">Actionable</td><td>Information that can be directly acted upon.</td><td class="example">"Please make the feedback actionable for the tech team."</td></tr>
+      <tr><td class="term">To loop someone in</td><td>To involve someone in a conversation or email thread.</td><td class="example">"I'll loop in the marketing manager on this thread."</td></tr>
+      <tr><td class="term">High priority</td><td>Something that requires immediate attention.</td><td class="example">"Please treat this as high priority — client is waiting."</td></tr>
+      <tr><td class="term">Circle back</td><td>To discuss something again at a later time.</td><td class="example">"Let's circle back to this after the holiday period."</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">2</div><h2 class="sec-title">Tone & Register Comparison</h2></div>
+  <p class="prose">Always match your tone to your audience. Internal messages to colleagues can be more casual; external communications to clients or partners require greater formality and care.</p>
+  <table class="cmp-tbl">
+    <thead><tr><th>Informal (Internal)</th><th>Formal (External / Client)</th></tr></thead>
+    <tbody>
+      <tr><td>Can you send me that?</td><td>I would appreciate it if you could forward the document at your earliest convenience.</td></tr>
+      <tr><td>Sorry for the delay.</td><td>Please accept my sincere apologies for the delayed response.</td></tr>
+      <tr><td>See ya.</td><td>I look forward to hearing from you.</td></tr>
+      <tr><td>Fix this ASAP.</td><td>Could you please prioritise this matter?</td></tr>
+      <tr><td>FYI — the meeting is moved.</td><td>I wanted to inform you that the meeting has been rescheduled to [time/date].</td></tr>
+      <tr><td>Just checking in.</td><td>I am writing to follow up on the status of [project/task].</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">3</div><h2 class="sec-title">Writing Professional Emails — Phrases & Templates</h2></div>
+
+  <div class="pbox">
+    <div class="pbox-title">Opening Lines</div>
+    <div class="phrases">
+      <div class="ph"><em>"I hope this email finds you well."</em></div>
+      <div class="ph"><em>"I am writing to follow up on our recent meeting regarding [topic]."</em></div>
+      <div class="ph"><em>"Thank you for your prompt response — I appreciate your time."</em></div>
+      <div class="ph"><em>"As per our conversation, I wanted to confirm the following points."</em></div>
+      <div class="ph"><em>"I hope you had a pleasant weekend / a safe journey."</em></div>
+    </div>
+  </div>
+
+  <div class="pbox">
+    <div class="pbox-title">Making a Request</div>
+    <div class="phrases">
+      <div class="ph"><em>"Could you please review the attached document and provide your feedback by [date]?"</em></div>
+      <div class="ph"><em>"I would be grateful if you could confirm your availability for a brief call."</em></div>
+      <div class="ph"><em>"Please find attached the report you requested."</em></div>
+      <div class="ph"><em>"I would appreciate it if you could prioritise this matter."</em></div>
+      <div class="ph"><em>"Moving forward, I propose that we [suggest a course of action]."</em></div>
+    </div>
+  </div>
+
+  <div class="pbox">
+    <div class="pbox-title">Responding to Emails</div>
+    <div class="phrases">
+      <div class="ph"><em>"Thank you for your email regarding [topic]. I appreciate you reaching out."</em></div>
+      <div class="ph"><em>"In response to your inquiry, [provide a clear and concise answer]."</em></div>
+      <div class="ph"><em>"Additionally, I would like to clarify [any outstanding points]."</em></div>
+      <div class="ph"><em>"If you have any further questions, please do not hesitate to reach out."</em></div>
+      <div class="ph"><em>"I am more than happy to provide any additional assistance you may need."</em></div>
+      <div class="ph"><em>"Once again, thank you for contacting me. I look forward to hearing from you."</em></div>
+    </div>
+  </div>
+
+  <div class="pbox">
+    <div class="pbox-title">Professional Closing Lines</div>
+    <div class="phrases">
+      <div class="ph"><em>"Please do not hesitate to reach out should you have any questions."</em></div>
+      <div class="ph"><em>"I look forward to hearing from you at your earliest convenience."</em></div>
+      <div class="ph"><em>"Thank you once again for your time and collaboration."</em></div>
+      <div class="ph"><em>"I look forward to our continued and productive partnership."</em></div>
+      <div class="ph"><em>"I remain at your disposal for any further information required."</em></div>
+    </div>
+  </div>
+
+  <div class="reading">
+    <div class="reading-label">Email Template</div>
+    <div class="reading-title">The Professional Follow-Up Email</div>
+    <p><strong>Subject:</strong> Follow-Up on [Topic] — [Your Name]</p>
+    <p>Dear [Recipient's Name],</p>
+    <p>I hope this email finds you well. I am writing to follow up on our recent meeting regarding [briefly mention the topic or purpose].</p>
+    <p>During our discussion, we covered several key points, including [summarise the main topics]. It was a pleasure exchanging ideas and insights with you, and I believe we made significant progress towards [mention any agreed action items or next steps].</p>
+    <p>As per our conversation, I have taken the liberty of [describe any tasks undertaken]. Additionally, I would like to clarify [any points requiring confirmation].</p>
+    <p>Moving forward, I propose that we [suggest a course of action]. Please let me know if you agree with this approach or if you have any alternative suggestions.</p>
+    <p>Thank you once again for your time and collaboration. I look forward to hearing from you soon.</p>
+    <p><strong>Best regards,</strong><br>[Your Name] | [Your Position] | [Your Contact Information]</p>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">4</div><h2 class="sec-title">Writing for Clarity — Active vs Passive Voice</h2></div>
+  <p class="prose">Business English strongly favours the <strong>active voice</strong> over the passive voice. It sounds more direct, more confident, and takes up less space on the page.</p>
+  <div class="callout note"><span class="callout-ico">📝</span><div class="callout-body"><strong>Passive:</strong> "The report was sent by me yesterday." (Wordy, indirect) &nbsp;→&nbsp; <strong>Active:</strong> "I sent the report yesterday." (Clear, direct, professional)</div></div>
+
+  <div class="exbox">
+    <div class="ex-hdr"><span class="ex-badge">EXERCISE</span><h3 class="ex-title">Rewrite for Clarity</h3></div>
+    <p class="ex-sub">Rewrite these wordy, passive sentences to be more concise and professional. Type your answer — feedback is instant.</p>
+    ${FI('fi2_1','<strong>Wordy:</strong> "I am writing this email to you because I wanted to ask if you might have some time to meet tomorrow."',['could we meet','are you available','would you be','do you have time','can we meet'])}
+    ${FI('fi2_2','<strong>Wordy:</strong> "At this point in time, we are currently waiting for the data to be finished by the team."',['we are waiting','the team is finalising','awaiting','we await','waiting for the team'])}
+    ${FI('fi2_3','<strong>Wordy:</strong> "In the event that you cannot make it, please let us know."',['if you cannot','should you be unable','if you can\'t','please inform us','let us know'])}
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">5</div><h2 class="sec-title">Quiz: Digital Correspondence</h2></div>
+  <div class="exbox">
+    <div class="ex-hdr"><span class="ex-badge">QUIZ</span><h3 class="ex-title">Email Essentials Check</h3></div>
+    <p class="ex-sub">Choose the best answer for each question.</p>
+    ${Q('Which subject line is MOST effective and professional?',['Checking in...','Question about something','Action Required: Q3 Budget Approval — Decision Needed by Friday','Meeting'],2)}
+    ${Q('"To loop someone in" on an email means:',['To schedule a circular meeting.','To involve someone in the email conversation.','To send a document in a loop format.','To write a very long email.'],1)}
+    ${Q('Which closing is most appropriate for a formal external email to a client?',['Cheers! Talk soon.','Later — will be in touch.','I look forward to hearing from you. Kind regards,','TTYL'],2)}
+    ${Q('Which sentence correctly uses the ACTIVE voice?',['The budget was reviewed by Sarah.','A review of the budget was conducted.','Sarah reviewed the budget and approved the figures.','The budget has been reviewed.'],2)}
+    ${Q('What does "to circle back" mean in a business email context?',['To write a circular company-wide message.','To revisit or follow up on a topic at a later time.','To copy everyone on a reply.','To send a second, redundant email.'],1)}
+    <button class="btn-check" onclick="checkQuiz('ch2q')">Submit Quiz</button>
+    <div class="qscore" id="ch2q-score"></div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">6</div><h2 class="sec-title">Scenario: The Follow-Up Email</h2></div>
+  <div class="scenario">
+    <div class="sc-label">Writing Task</div>
+    <div class="sc-text">You met a potential client, Mr. Henderson, at the networking event from Chapter 1. You promised to send him your company's digital brochure and suggest a call.</div>
+    <div class="sc-divider">
+      <div class="sc-task-label">Your email must include all of the following:</div>
+      <div class="sc-steps">
+        <div class="sc-step"><span>1.</span><span>A warm reference to your meeting: <em>"It was a pleasure meeting you at [event] on [day]."</em></span></div>
+        <div class="sc-step"><span>2.</span><span>The attachment phrase: <em>"Please find attached our digital brochure for your review."</em></span></div>
+        <div class="sc-step"><span>3.</span><span>A call to action: suggest a 20-minute call next Tuesday to discuss further.</span></div>
+        <div class="sc-step"><span>4.</span><span>A professional sign-off with your name, title, and contact details.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+`,
+
+// ═══ CHAPTER 3 ═══
+3:()=>`
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">1</div><h2 class="sec-title">Leading & Directing Discussions</h2></div>
+  <p class="prose">A good chairperson or meeting lead doesn't just talk — they <strong>facilitate</strong>. This involves "signposting" — using specific phrases to tell participants where the meeting is going, keeping discussions focused, and ensuring all voices are heard.</p>
+
+  <div class="pbox">
+    <div class="pbox-title">The Facilitator's Toolkit — Signposting Language</div>
+    <div class="phrases">
+      <div class="ph"><strong>Opening:</strong> <em>"Thanks for coming. The main objective of today's session is to [state purpose]."</em></div>
+      <div class="ph"><strong>Stating the agenda:</strong> <em>"We have three main items today. First, we'll cover X, then Y, and we'll close with Z."</em></div>
+      <div class="ph"><strong>Staying on track:</strong> <em>"That's a valid point, but let's try to stay on topic for now — perhaps we can revisit that under AOB."</em></div>
+      <div class="ph"><strong>Managing time:</strong> <em>"We're running a bit tight on time, so let's move on to the next item."</em></div>
+      <div class="ph"><strong>Inviting input:</strong> <em>"I'd like to hear [Name]'s thoughts on this. [Name], what's your take?"</em></div>
+      <div class="ph"><strong>Summarising a point:</strong> <em>"So what we're saying is [recap the discussion]. Does everyone agree?"</em></div>
+      <div class="ph"><strong>Closing:</strong> <em>"Before we finish, let's confirm the action items and who's responsible for each."</em></div>
+    </div>
+  </div>
+
+  <table class="vocab-tbl">
+    <thead><tr><th>Term</th><th>Definition</th><th>Context Example</th></tr></thead>
+    <tbody>
+      <tr><td class="term">To facilitate</td><td>To make a process or discussion easier or smoother.</td><td class="example">"She was asked to facilitate the brainstorming session."</td></tr>
+      <tr><td class="term">AOB</td><td>Any Other Business — topics not on the formal agenda.</td><td class="example">"Does anyone have anything for AOB before we wrap up?"</td></tr>
+      <tr><td class="term">To table a topic</td><td>To postpone a discussion until a later time.</td><td class="example">"Let's table the budget talk until the CFO arrives."</td></tr>
+      <tr><td class="term">The floor</td><td>The right to speak in a meeting.</td><td class="example">"I'll give the floor to the engineering team now."</td></tr>
+      <tr><td class="term">Action items</td><td>Specific tasks assigned as a result of the meeting.</td><td class="example">"Let's confirm the action items before we close."</td></tr>
+      <tr><td class="term">Minutes</td><td>Written records of the meeting's discussions and decisions.</td><td class="example">"Could you take the minutes for today's session?"</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">2</div><h2 class="sec-title">Meeting & Conference Vocabulary</h2></div>
+  <div class="vocab-cards">
+    <div class="vc"><div class="vc-term">Agenda</div><div class="vc-def">A list of topics to be discussed during a meeting or conference.</div><div class="vc-ex">"Please review the agenda before the 10am meeting."</div></div>
+    <div class="vc"><div class="vc-term">Chairperson / Facilitator</div><div class="vc-def">The individual responsible for leading and guiding the proceedings.</div><div class="vc-ex">"The chairperson called for a vote on the proposal."</div></div>
+    <div class="vc"><div class="vc-term">Keynote Speaker</div><div class="vc-def">A featured speaker who delivers the main address at a conference.</div><div class="vc-ex">"The keynote speaker discussed innovation in fintech."</div></div>
+    <div class="vc"><div class="vc-term">Breakout Session</div><div class="vc-def">A smaller group discussion within a larger conference.</div><div class="vc-ex">"We'll split into breakout sessions after the plenary."</div></div>
+    <div class="vc"><div class="vc-term">Panel Discussion</div><div class="vc-def">A group of experts discussing a topic before an audience.</div><div class="vc-ex">"Please join our panel discussion on sustainability at 3pm."</div></div>
+    <div class="vc"><div class="vc-term">Q&A Session</div><div class="vc-def">A session where participants ask questions and receive answers.</div><div class="vc-ex">"We'll open the floor for Q&A after the presentation."</div></div>
+    <div class="vc"><div class="vc-term">Wrap-up</div><div class="vc-def">The final part of a meeting where key points are summarised.</div><div class="vc-ex">"We'll do a quick wrap-up in the last five minutes."</div></div>
+    <div class="vc"><div class="vc-term">Networking</div><div class="vc-def">The process of establishing connections with other professionals.</div><div class="vc-ex">"Don't miss the networking reception after the event."</div></div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">3</div><h2 class="sec-title">The Art of the Polite Interruption</h2></div>
+  <p class="prose">In fast-paced English-speaking environments, waiting for a long silence might mean you never get to speak. You must learn to "bridge" into the conversation diplomatically — contributing your expertise without appearing rude or confrontational.</p>
+
+  <div class="callout tip"><span class="callout-ico">💡</span><div class="callout-body"><strong>Intonation is key.</strong> Use a rising pitch at the start of your interruption to signal that you are being collaborative, not confrontational. A soft, upward tone says "I'm adding to this," not "I'm taking over."</div></div>
+
+  <div class="pbox">
+    <div class="pbox-title">Interruption Phrases by Context</div>
+    <div class="phrases">
+      <div class="ph"><strong>The Soft Entry:</strong> <em>"Sorry to jump in, but I think this connects directly to what we discussed last week..."</em></div>
+      <div class="ph"><strong>The Clarification:</strong> <em>"Could I just stop you there for a second? I want to make sure I understand the implications of..."</em></div>
+      <div class="ph"><strong>The Add-On:</strong> <em>"If I could just add something to that point — we also found that..."</em></div>
+      <div class="ph"><strong>The Pivot:</strong> <em>"I see your point, however, have we considered the impact this might have on the timeline?"</em></div>
+      <div class="ph"><strong>The Redirect:</strong> <em>"That's a great point — perhaps we can note that under AOB and move on to the main agenda?"</em></div>
+      <div class="ph"><strong>The Question Entry:</strong> <em>"Before we move on, could I just ask — what's the current status of...?"</em></div>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">4</div><h2 class="sec-title">Professional Communication Skills</h2></div>
+  <p class="prose">In today's professional landscape, effective communication skills are paramount for success. These encompass verbal and non-verbal communication, active listening, and strong interpersonal skills.</p>
+
+  <div class="reading">
+    <div class="reading-label">Reading</div>
+    <div class="reading-title">Telephone Communication Skills</div>
+    <p>Telephone communication presents its own set of challenges. Without the benefit of visual cues, individuals must rely solely on their verbal communication skills to convey messages effectively. Therefore, <strong>clarity, tone, and pacing</strong> are of utmost importance.</p>
+    <p>To enhance telephone communication, practice speaking clearly and confidently, use appropriate greetings and salutations, and actively engage with the caller by asking relevant questions and providing thoughtful responses. Maintaining a professional demeanour at all times creates a positive impression and fosters productive interactions.</p>
+  </div>
+
+  <div class="pbox">
+    <div class="pbox-title">Colloquialisms in Professional Settings</div>
+    <div class="phrases">
+      <div class="ph"><em>"I'll take the lead on this project and run with it."</em></div>
+      <div class="ph"><em>"We need to put our heads together to come up with a game plan."</em></div>
+      <div class="ph"><em>"Let's think outside the box and brainstorm some fresh ideas."</em></div>
+      <div class="ph"><em>"We're all in the same boat, so let's row together to reach our goals."</em></div>
+    </div>
+  </div>
+
+  <div class="pbox">
+    <div class="pbox-title">Phrasal Verbs for Professional Skills</div>
+    <div class="phrases">
+      <div class="ph"><em>"Let's <strong>break down</strong> the project into smaller tasks to manage it more effectively."</em></div>
+      <div class="ph"><em>"It's important to <strong>follow up</strong> on client inquiries promptly to maintain good relationships."</em></div>
+      <div class="ph"><em>"We should <strong>hammer out</strong> the details of the contract before signing."</em></div>
+      <div class="ph"><em>"She's known for her ability to <strong>think outside the box</strong> and come up with creative solutions."</em></div>
+      <div class="ph"><em>"He's really good at <strong>juggling</strong> multiple tasks and priorities simultaneously."</em></div>
+    </div>
+  </div>
+
+  <div class="pbox">
+    <div class="pbox-title">Advertising & Business Vocabulary</div>
+    <div class="phrases">
+      <div class="ph"><strong>Campaign:</strong> A coordinated series of advertising efforts with a specific objective.</div>
+      <div class="ph"><strong>Target Audience:</strong> The specific group a campaign is intended to reach and influence.</div>
+      <div class="ph"><strong>Branding:</strong> Creating a distinctive identity through logos, slogans, and marketing elements.</div>
+      <div class="ph"><strong>Call to Action (CTA):</strong> A directive urging the audience to take a specific action.</div>
+      <div class="ph"><strong>Reach:</strong> The total number of people exposed to an advertisement or message.</div>
+      <div class="ph"><strong>Engagement:</strong> The level of interaction an audience has with your content.</div>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">5</div><h2 class="sec-title">Quiz: Dynamic Meetings</h2></div>
+  <div class="exbox">
+    <div class="ex-hdr"><span class="ex-badge">QUIZ</span><h3 class="ex-title">Meeting Language Check</h3></div>
+    <p class="ex-sub">Choose the most appropriate response for each meeting scenario.</p>
+    ${Q('You want to politely postpone a budget discussion until a key person arrives. You say:',['Let\'s skip the budget discussion completely.','Let\'s table the budget discussion until the CFO joins us.','The budget doesn\'t need to be discussed today.','Can we talk about budget later maybe?'],1)}
+    ${Q('You want to interrupt politely during a fast-moving discussion. You say:',['Hey, stop — I have something to say.','Wait, I\'m talking now.','If I could just add something to that point — I think it\'s relevant to what we\'ve just heard.','Excuse me, you\'re wrong about that.'],2)}
+    ${Q('What does "AOB" stand for in a meeting context?',['All of Business','Agenda of Briefing','Any Other Business','Actions on Budget'],2)}
+    ${Q('You are facilitating and need to move to the next agenda item. The most professional phrase is:',['That\'s enough on that topic.','Next.','We\'re running a little tight on time, so let\'s move on to our next agenda item.','Stop talking about this.'],2)}
+    ${Q('After a meeting, you should always:',['Wait for someone else to send notes.','Send minutes with action items and owners within 24 hours.','Call each participant individually to confirm.','Nothing — the discussion was sufficient.'],1)}
+    <button class="btn-check" onclick="checkQuiz('ch3q')">Submit Quiz</button>
+    <div class="qscore" id="ch3q-score"></div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">6</div><h2 class="sec-title">Match: Meeting Phrases to Functions</h2></div>
+  <div class="exbox">
+    <div class="ex-hdr"><span class="ex-badge">MATCH</span><h3 class="ex-title">What Does Each Phrase Do?</h3></div>
+    <p class="ex-sub">Click a phrase on the left, then click its matching function on the right.</p>
+    ${MATCH('m3',
+      ['"Thanks for coming. Today\'s objective is to..."','"That\'s a great point — let\'s note it under AOB."','"I\'d love to hear [Name]\'s take on this."','"Before we close, let\'s confirm our action items."'],
+      ['Opening a meeting','Redirecting off-topic comments','Inviting input from a specific person','Closing a meeting properly']
+    )}
+  </div>
+</div>
+`,
+
+// ═══ CHAPTER 4 ═══
+4:()=>`
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">1</div><h2 class="sec-title">The Power of "The Hook"</h2></div>
+  <p class="prose">The first 60 seconds of a presentation determine whether your audience tunes in or tunes out. Instead of starting with the dreaded <em>"My name is... and today I will talk about..."</em>, use a Hook to capture immediate attention and create curiosity.</p>
+
+  <div class="tip-row">
+    <div class="tip-card"><div class="tip-card-title">Provocative Question</div><div class="tip-card-body">"Did you know that 60% of our leads drop off before the checkout page?"</div></div>
+    <div class="tip-card"><div class="tip-card-title">Shocking Statistic</div><div class="tip-card-body">"Last year, we lost €2 million due to simple logistics errors."</div></div>
+    <div class="tip-card"><div class="tip-card-title">Imagine Scenario</div><div class="tip-card-body">"Imagine a world where our software updates itself without any downtime."</div></div>
+    <div class="tip-card"><div class="tip-card-title">The Story</div><div class="tip-card-body">"A client called me last week, and what she said changed how I view our service entirely."</div></div>
+  </div>
+
+  <table class="vocab-tbl">
+    <thead><tr><th>Term</th><th>Definition</th><th>Context Example</th></tr></thead>
+    <tbody>
+      <tr><td class="term">Stakeholder</td><td>Anyone with an interest or "stake" in the project or outcome.</td><td class="example">"We need to present these findings to all stakeholders."</td></tr>
+      <tr><td class="term">Takeaway</td><td>The main point or key message the audience should remember.</td><td class="example">"The key takeaway is that we need to diversify our advertising."</td></tr>
+      <tr><td class="term">To highlight</td><td>To draw special attention to a particular point or finding.</td><td class="example">"I'd like to highlight the growth in the Asian market."</td></tr>
+      <tr><td class="term">Benchmark</td><td>A standard or point of reference used for comparison.</td><td class="example">"Our Q3 results are the new benchmark for the team."</td></tr>
+    </tbody>
+  </table>
+
+  <div class="vocab-cards">
+    <div class="vc"><div class="vc-term">Blue-sky thinking</div><div class="vc-def">Creative ideas that are not limited by current reality or budgets.</div><div class="vc-ex">"This brainstorm is for blue-sky thinking only — no idea is too big."</div></div>
+    <div class="vc"><div class="vc-term">The bottom line</div><div class="vc-def">The most important point, or the net financial result.</div><div class="vc-ex">"The bottom line is: we need to cut costs by 12%."</div></div>
+    <div class="vc"><div class="vc-term">To circle back</div><div class="vc-def">To return to and discuss something at a later point.</div><div class="vc-ex">"Let's circle back to that idea after the break."</div></div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">2</div><h2 class="sec-title">Business Context Vocabulary</h2></div>
+  <p class="prose">When presenting data in business, you must command a broad vocabulary across multiple functional areas. These terms frequently appear in presentations and data-driven discussions.</p>
+  <div class="vocab-cards">
+    <div class="vc"><div class="vc-term">Revenue</div><div class="vc-def">Income generated from sales of goods or services.</div><div class="vc-ex">"Q3 revenue exceeded the target by 8%."</div></div>
+    <div class="vc"><div class="vc-term">Profit</div><div class="vc-def">Financial gain when revenue exceeds expenses.</div><div class="vc-ex">"Net profit margins have improved significantly."</div></div>
+    <div class="vc"><div class="vc-term">ROI</div><div class="vc-def">Return on Investment — the ratio of profit to cost.</div><div class="vc-ex">"The campaign delivered a 300% ROI."</div></div>
+    <div class="vc"><div class="vc-term">Supply Chain</div><div class="vc-def">The network involved in production and distribution of goods.</div><div class="vc-ex">"Supply chain disruptions affected our Q2 margins."</div></div>
+    <div class="vc"><div class="vc-term">Market Penetration</div><div class="vc-def">The extent to which a product is recognized and bought in a market.</div><div class="vc-ex">"We need greater market penetration in Southeast Asia."</div></div>
+    <div class="vc"><div class="vc-term">Logistics</div><div class="vc-def">Management of the flow of goods from origin to consumption.</div><div class="vc-ex">"Logistics costs have risen 12% this quarter."</div></div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">3</div><h2 class="sec-title">Describing Trends & Visual Data</h2></div>
+  <p class="prose">To describe visual data effectively in Business English, you must move beyond simply saying <em>"it went up"</em> or <em>"it went down."</em> You need to describe the <strong>speed, intensity, and nature</strong> of the change using precise vocabulary.</p>
+
+  <table class="cmp-tbl">
+    <thead><tr><th>Direction</th><th>Verbs (Action)</th><th>Nouns (The Event)</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Upward</strong></td><td>to rise, to increase, to climb, to grow, to surge, to rocket, to soar, to jump</td><td>an increase, a rise, a surge, a growth, an upward trend</td></tr>
+      <tr><td><strong>Downward</strong></td><td>to fall, to decline, to drop, to plummet, to dip, to shrink, to slump, to slide</td><td>a fall, a decline, a drop, a reduction, a slump</td></tr>
+      <tr><td><strong>Stable</strong></td><td>to remain steady, to level off, to stabilize, to stagnate, to plateau</td><td>a plateau, a period of stability, a levelling off</td></tr>
+      <tr><td><strong>Volatile</strong></td><td>to fluctuate, to oscillate, to go up and down, to vary</td><td>a fluctuation, volatility, variation</td></tr>
+    </tbody>
+  </table>
+
+  <div class="pbox">
+    <div class="pbox-title">Adverbs & Adjectives — Speed and Degree</div>
+    <div class="phrases">
+      <div class="ph"><strong>Big/Fast changes:</strong> dramatically, sharply, suddenly, significantly, substantially, rapidly, steeply</div>
+      <div class="ph"><strong>Small/Slow changes:</strong> slightly, moderately, steadily, gradually, marginally, gently</div>
+      <div class="ph"><strong>Highs and lows:</strong> <em>"User activity peaked in July"</em> / <em>"The market bottomed out in Q3."</em></div>
+      <div class="ph"><strong>Specific data points:</strong> <em>"Inflation currently stands at 4.2%."</em> / <em>"Revenue stands at €3.2 million."</em></div>
+    </div>
+  </div>
+
+  <div class="pbox">
+    <div class="pbox-title">Prepositions — Small Words That Change Everything</div>
+    <div class="phrases">
+      <div class="ph"><strong>FROM...TO:</strong> Shows start and end points. <em>"Sales rose from €10M to €50M."</em></div>
+      <div class="ph"><strong>BY:</strong> Shows the amount of change. <em>"Revenue increased by 40%."</em></div>
+      <div class="ph"><strong>OF:</strong> Shows the difference. <em>"There was an increase of €2 million."</em></div>
+      <div class="ph"><strong>AT:</strong> Shows the current level. <em>"Profit currently stands at €1.2M."</em></div>
+    </div>
+  </div>
+
+  <div class="pbox">
+    <div class="pbox-title">Pie Chart Vocabulary</div>
+    <div class="phrases">
+      <div class="ph"><strong>To constitute / account for:</strong> <em>"Marketing accounts for 30% of the total budget."</em></div>
+      <div class="ph"><strong>The lion's share:</strong> The largest portion. <em>"The lion's share of revenue comes from enterprise clients."</em></div>
+      <div class="ph"><strong>A tiny fraction:</strong> A very small part. <em>"Only a tiny fraction is allocated to R&D."</em></div>
+      <div class="ph"><strong>A breakdown:</strong> <em>"Here is a breakdown of our customer demographics."</em></div>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">4</div><h2 class="sec-title">Navigating Visual Aids</h2></div>
+  <div class="pbox">
+    <div class="pbox-title">Transition Phrases for Presentations</div>
+    <div class="phrases">
+      <div class="ph"><strong>Introducing a visual:</strong> <em>"If you look at this bar chart, you'll notice a sharp increase in Q4."</em></div>
+      <div class="ph"><strong>Directing attention:</strong> <em>"I'd like to draw your attention to the upper right-hand corner of this slide."</em></div>
+      <div class="ph"><strong>The 'So What?':</strong> <em>"What this means for us is that we need to revisit our pricing strategy."</em></div>
+      <div class="ph"><strong>Moving on:</strong> <em>"Now that we've looked at the costs, let's turn to the potential ROI."</em></div>
+      <div class="ph"><strong>Summarising data:</strong> <em>"To summarise what we're seeing here — growth has been consistent but we need to address the Q2 dip."</em></div>
+    </div>
+  </div>
+
+  <div class="reading">
+    <div class="reading-label">Reading — Business Proposals</div>
+    <div class="reading-title">Creating & Delivering Business Presentations</div>
+    <p>Creating business proposals requires a combination of reading, writing, listening, and speaking skills to effectively complete and deliver a compelling presentation. Demonstrating fluency in business contexts is essential for conveying your ideas persuasively.</p>
+    <p><strong>Research and Analysis:</strong> Begin by thoroughly researching your target audience, market trends, competitors, and industry insights. Analyse the needs and challenges of your potential clients to tailor your proposal accordingly.</p>
+    <p><strong>Proposal Structure:</strong> Start with a clear executive summary. Develop a detailed introduction, outline the scope of work and objectives, present your proposed solutions, and include pricing details and terms.</p>
+    <p><strong>Presentation Delivery:</strong> Use visual aids such as slides, charts, and graphs to enhance your presentation. Practice your delivery multiple times. Maintain eye contact, speak at an appropriate pace, and vary your tone and pitch to keep your audience engaged. Be receptive to feedback throughout.</p>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">5</div><h2 class="sec-title">Exercise & Quiz: Data Language</h2></div>
+  <div class="exbox">
+    <div class="ex-hdr"><span class="ex-badge">QUIZ</span><h3 class="ex-title">Data Narrative & Presentation Language</h3></div>
+    <p class="ex-sub">Choose the best answer for each scenario.</p>
+    ${Q('A very fast, dramatic drop in company profit. The best description is:',['"Profits went down a lot."','"Profits decreased somehow."','"Profits plummeted dramatically in Q3."','"Profits were not as high as before."'],2)}
+    ${Q('A slow, consistent rise in user numbers over six months. The best description is:',['"User numbers went up."','"User numbers grew steadily over the six-month period."','"There were more users."','"Users increased at some point."'],1)}
+    ${Q('You want to point out the highest value on a graph. You say:',['"This is when it was the most."','"User activity peaked in July, reaching 2.4 million sessions."','"Look — that\'s high."','"The big number was in July."'],1)}
+    ${Q('"Revenue increased by 40%" — which preposition correctly shows the AMOUNT of change?',['from','to','at','by'],3)}
+    ${Q('Which phrase correctly introduces a visual aid in a presentation?',['"This is a chart."','"Look at this."','"If you look at this bar chart, you\'ll notice a sharp rise in Q4 activity."','"Here are some numbers."'],2)}
+    <button class="btn-check" onclick="checkQuiz('ch4q')">Submit Quiz</button>
+    <div class="qscore" id="ch4q-score"></div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">6</div><h2 class="sec-title">Match: Verb Intensity</h2></div>
+  <div class="exbox">
+    <div class="ex-hdr"><span class="ex-badge">MATCH</span><h3 class="ex-title">Match Each Verb to Its Intensity Level</h3></div>
+    <p class="ex-sub">Click a verb, then click its matching description.</p>
+    ${MATCH('m4',
+      ['To Soar','To Edge up','To Plummet','To Stagnate','To Surge'],
+      ['To increase very quickly to a very high level','To increase slightly or slowly over time','To fall a very large amount very quickly','To stay the same — no growth or decline','To rise suddenly and dramatically']
+    )}
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">7</div><h2 class="sec-title">Scenario: The 2-Minute Department Brief</h2></div>
+  <div class="scenario">
+    <div class="sc-label">Presentation Task</div>
+    <div class="sc-text">You are presenting quarterly results for your department to the leadership team. Prepare and practise a 2-minute brief.</div>
+    <div class="sc-divider">
+      <div class="sc-task-label">Structure your brief using three elements:</div>
+      <div class="sc-steps">
+        <div class="sc-step"><span>1.</span><span><strong>The Hook</strong> — Open with a statistic, question, or striking finding about your team's performance this quarter.</span></div>
+        <div class="sc-step"><span>2.</span><span><strong>The Visual</strong> — Describe a recent trend using a precise verb + adverb combination. E.g., <em>"Customer complaints plummeted dramatically by 30%."</em></span></div>
+        <div class="sc-step"><span>3.</span><span><strong>The Takeaway</strong> — End with one clear, actionable recommendation for the leadership team.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+`,
+
+// ═══ CHAPTER 5 ═══
+5:()=>`
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">1</div><h2 class="sec-title">The Modern CV — Results-Oriented Writing</h2></div>
+  <p class="prose">A Business English CV should be <strong>results-oriented</strong> rather than task-oriented. Instead of listing what you did, highlight what you <em>achieved</em>. The difference between a forgettable CV and one that gets interviews often comes down to a single formula.</p>
+
+  <div class="callout sage"><span class="callout-ico">📌</span><div class="callout-body"><strong>The Action + Result Formula:</strong><br>
+  Weak: <em>"Responsible for social media."</em><br>
+  Strong: <em>"Spearheaded a new content strategy across three platforms, growing the audience by 45% in four months."</em></div></div>
+
+  <table class="vocab-tbl">
+    <thead><tr><th>Term</th><th>Definition</th><th>Context Example</th></tr></thead>
+    <tbody>
+      <tr><td class="term">Transferable skills</td><td>Skills developed in one job that are useful in another.</td><td class="example">"Communication is a key transferable skill for any role."</td></tr>
+      <tr><td class="term">Spearhead</td><td>To lead and drive a project or initiative forward.</td><td class="example">"She spearheaded the transition to the new CRM system."</td></tr>
+      <tr><td class="term">High-growth</td><td>A company or industry expanding rapidly.</td><td class="example">"I am looking for a role in a high-growth tech firm."</td></tr>
+      <tr><td class="term">ATS</td><td>Applicant Tracking System — software that filters CVs automatically.</td><td class="example">"Ensure your CV is ATS-friendly by using industry keywords."</td></tr>
+    </tbody>
+  </table>
+
+  <div class="pbox">
+    <div class="pbox-title">Power Action Verbs for Your CV</div>
+    <div class="phrases">
+      <div class="ph"><strong>Leadership:</strong> Spearheaded, Pioneered, Championed, Directed, Oversaw, Managed, Supervised</div>
+      <div class="ph"><strong>Achievement:</strong> Achieved, Delivered, Generated, Exceeded, Outperformed, Surpassed</div>
+      <div class="ph"><strong>Creation:</strong> Designed, Developed, Built, Launched, Established, Created, Implemented</div>
+      <div class="ph"><strong>Improvement:</strong> Streamlined, Optimized, Revamped, Overhauled, Restructured, Enhanced</div>
+      <div class="ph"><strong>Relationships:</strong> Cultivated, Negotiated, Collaborated, Partnered, Fostered, Liaised</div>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">2</div><h2 class="sec-title">LinkedIn Profile Optimization</h2></div>
+  <p class="prose">Your LinkedIn profile is your "living" CV. It shouldn't just repeat your resume — it should <strong>tell a story</strong> and actively invite connection. Many recruiters spend more time on your LinkedIn profile than your actual CV.</p>
+
+  <div class="formula-box">
+    <div class="formula-title">The Three Pillars of a Strong LinkedIn Profile</div>
+    <div class="formula-steps">
+      <div class="formula-step"><span class="formula-num">1.</span><span><strong>The Headline:</strong> Move beyond your job title. Instead of "Project Manager," try: <em>"Project Manager | Specialising in Agile Transformations & FinTech Scale-Ups"</em></span></div>
+      <div class="formula-step"><span class="formula-num">2.</span><span><strong>The Summary (About Section):</strong> Write in the first person. Start with your "Why" and end with a Call to Action. E.g., <em>"Open to connecting with industry leaders in sustainable finance."</em></span></div>
+      <div class="formula-step"><span class="formula-num">3.</span><span><strong>Social Proof:</strong> Request written recommendations from managers and colleagues. Endorse others for skills — they will often return the favour. This builds credibility.</span></div>
+    </div>
+  </div>
+
+  <div class="pbox">
+    <div class="pbox-title">LinkedIn Headline Upgrade Examples</div>
+    <div class="phrases">
+      <div class="ph"><strong>Before:</strong> "Marketing Manager" &nbsp;→&nbsp; <strong>After:</strong> <em>"Marketing Manager | B2B SaaS Growth | Driving 3x Pipeline Through Data-Led Campaigns"</em></div>
+      <div class="ph"><strong>Before:</strong> "Finance Analyst" &nbsp;→&nbsp; <strong>After:</strong> <em>"Finance Analyst | FP&A | Turning Complex Data into Clear Strategic Decisions"</em></div>
+      <div class="ph"><strong>Before:</strong> "HR Manager" &nbsp;→&nbsp; <strong>After:</strong> <em>"HR Manager | People & Culture | Building High-Performance Teams in Fast-Growing Companies"</em></div>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">3</div><h2 class="sec-title">Interview Techniques — The STAR Method</h2></div>
+  <p class="prose">When an interviewer says "Tell me about a time you faced a challenge," they are looking for a structured, specific story — not a vague answer. The STAR method keeps your responses concise, relevant, and impactful.</p>
+
+  <div class="star-row">
+    <div class="star-cell S"><div class="star-letter">S</div><div class="star-word">Situation</div><div class="star-desc">Set the scene. The "Where" and "When" — give just enough context.</div></div>
+    <div class="star-cell T"><div class="star-letter">T</div><div class="star-word">Task</div><div class="star-desc">Describe the challenge or goal — the "What" you needed to achieve.</div></div>
+    <div class="star-cell A"><div class="star-letter">A</div><div class="star-word">Action</div><div class="star-desc">Explain exactly what YOU did — the "How." This is the most important part.</div></div>
+    <div class="star-cell R"><div class="star-letter">R</div><div class="star-word">Result</div><div class="star-desc">Share the outcome — ideally with a number, percentage, or measurable impact.</div></div>
+  </div>
+
+  <div class="example-block">
+    <div class="example-label">STAR in Practice — Example Answer</div>
+    <div class="example-text"><strong>Question:</strong> "Tell me about a time you managed a difficult project under pressure."<br><br><strong>S:</strong> "During my time at [Company], our main client requested a full website redesign with a six-week deadline — half the usual timeline." <strong>T:</strong> "As project lead, I had to coordinate five cross-functional teams while maintaining quality and client communication." <strong>A:</strong> "I implemented a daily stand-up system, created a shared dashboard for real-time updates, and negotiated a phased delivery with the client." <strong>R:</strong> "We delivered on time, the client extended our contract for another year, and team satisfaction scores improved by 20%."</div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">4</div><h2 class="sec-title">Presenting Yourself — A Professional Self-Introduction</h2></div>
+  <div class="reading">
+    <div class="reading-label">Model Text</div>
+    <div class="reading-title">Presenting Your Education, Experience & Role</div>
+    <p>Good [morning/afternoon/evening] everyone. My name is [Your Name], and I am thrilled to have the opportunity to introduce myself to you today.</p>
+    <p>I am a [mention your current educational status or job title] at [University/Company Name]. Throughout my academic and professional journey, I have cultivated a strong foundation in [key areas of expertise] and have consistently maintained a commitment to excellence.</p>
+    <p>I have had the privilege of working at [previous workplaces or internships], where I honed my skills in [relevant skills, e.g., teamwork, communication, problem-solving]. In my most recent role as [specific role], I [mention key achievements — e.g., "conducted market research, analysed financial data, and coordinated project timelines"], contributing to the overall success of the team.</p>
+    <p>As I continue to grow both personally and professionally, I am particularly drawn to [specific aspects of the company or industry] and am excited about the prospect of contributing to a team that shares my values and aspirations. Thank you for considering my candidacy.</p>
+  </div>
+
+  <div class="pbox">
+    <div class="pbox-title">Interview Phrases — The "Tell Me About Yourself" Structure</div>
+    <div class="phrases">
+      <div class="ph"><strong>Present:</strong> <em>"I am currently a [Title] at [Company], where I focus on [core responsibility]."</em></div>
+      <div class="ph"><strong>Past:</strong> <em>"Before this, I spent [X] years developing my expertise in [field/industry]."</em></div>
+      <div class="ph"><strong>Achievement:</strong> <em>"One of my proudest moments was when I [brief STAR story — 1–2 sentences]."</em></div>
+      <div class="ph"><strong>Future:</strong> <em>"I'm now looking to bring my expertise in [Skill] to a company like yours because [reason]."</em></div>
+    </div>
+  </div>
+
+  <div class="callout tip"><span class="callout-ico">💡</span><div class="callout-body"><strong>Handling "The Weakness" Question:</strong> Never use a fake weakness like "I'm a perfectionist." Instead, choose a real, minor skill gap and explain how you are actively improving it. <em>"In the past, I found it difficult to delegate effectively. I've since taken a leadership course and now actively coach junior team members, which has been incredibly rewarding."</em></div></div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">5</div><h2 class="sec-title">Exercise: Action Verb Upgrade</h2></div>
+  <div class="exbox">
+    <div class="ex-hdr"><span class="ex-badge">QUIZ</span><h3 class="ex-title">Replace Weak Verbs with Power Verbs</h3></div>
+    <p class="ex-sub">Choose the strongest, most professional verb to replace the underlined weak verb. Use this bank: <strong>Executed, Negotiated, Cultivated, Overhauled, Spearheaded, Delivered</strong></p>
+    ${Q('"I <u>fixed</u> the entire filing system to make it faster and easier to use." Best replacement:',['Adjusted','Changed','Overhauled','Looked at'],2)}
+    ${Q('"I <u>talked with</u> the vendors to get a better price on the contract." Best replacement:',['Spoke to','Chatted with','Discussed with','Negotiated with'],3)}
+    ${Q('"I <u>made</u> the new marketing plan from start to finish." Best replacement:',['Did','Completed','Executed','Tried'],2)}
+    ${Q('"I <u>grew</u> a strong relationship with five major new enterprise clients." Best replacement:',['Built','Made','Cultivated','Found'],2)}
+    ${Q('"I <u>led</u> the company\'s first international expansion into three new markets." Best replacement:',['Directed','Managed','Ran','Spearheaded'],3)}
+    <button class="btn-check" onclick="checkQuiz('ch5q')">Submit Quiz</button>
+    <div class="qscore" id="ch5q-score"></div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">6</div><h2 class="sec-title">Scenario: The Job Interview</h2></div>
+  <div class="scenario">
+    <div class="sc-label">Speaking Task</div>
+    <div class="sc-text">You are interviewing for a Senior Marketing Manager role. The interviewer asks: <em>"Tell me about a time you had to manage a difficult project under significant pressure."</em></div>
+    <div class="sc-divider">
+      <div class="sc-task-label">Prepare your STAR answer — aim for 90 seconds:</div>
+      <div class="sc-steps">
+        <div class="sc-step"><span>S.</span><span>Set the context — what company, what project, what was the pressure? (2–3 sentences max)</span></div>
+        <div class="sc-step"><span>T.</span><span>Describe the specific challenge or goal you were responsible for achieving.</span></div>
+        <div class="sc-step"><span>A.</span><span>Walk through the specific, personal actions you took — this is the heart of your answer.</span></div>
+        <div class="sc-step"><span>R.</span><span>State the measurable outcome. Include a number, percentage, or business impact.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+`
+}; // END CONTENT object (chapters 1-5 only here)
+
+// Placeholder for chapters 6-10 — will be injected
+</script>
+<script>
+// ═══════════════════════════════════════
+// CHAPTERS 6–10 — GECS Business English Mastery
+// All original source content fully integrated
+// ═══════════════════════════════════════
+
+Object.assign(CONTENT, {
+
+// ═══════════════════════════════════════
+// CHAPTER 6: NEGOTIATION TACTICS
+// ═══════════════════════════════════════
+6:()=>`
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">1</div><h2 class="sec-title">The "Win-Win" Philosophy</h2></div>
+  <p class="prose">Negotiation is not a battle; it is a <strong>collaborative process</strong> to find a mutually beneficial solution. In Business English, the language of negotiation is a delicate balance between firmness and flexibility. This chapter focuses on how to advocate for your interests while <em>maintaining</em>—rather than damaging—the professional relationship.</p>
+  <p class="prose">Modern business favors <strong>principled negotiation</strong>: looking for "win-win" scenarios where both parties feel they have gained value. To achieve this, you must move beyond <strong>positions</strong> (what you want) to <strong>interests</strong> (why you want it).</p>
+
+  <div class="pbox">
+    <div class="pbox-title">Essential Negotiation Phrases</div>
+    <div class="phrases">
+      <div class="ph"><strong>Exploring Interests:</strong> <em>"What is the main driver behind this timeline?"</em></div>
+      <div class="ph"><strong>Showing Empathy:</strong> <em>"I understand that budget constraints are a concern for you."</em></div>
+      <div class="ph"><strong>Finding Common Ground:</strong> <em>"We both want this project to be a long-term success."</em></div>
+      <div class="ph"><strong>Softening the ask:</strong> <em>"Would you be open to exploring some alternative arrangements?"</em></div>
+      <div class="ph"><strong>Testing the water:</strong> <em>"How would you feel about a phased delivery approach?"</em></div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:16px;color:var(--ink);margin:18px 0 10px">Key Vocabulary</h3>
+  <table class="vocab-tbl">
+    <thead><tr><th>Term</th><th>Definition</th><th>Context Example</th></tr></thead>
+    <tbody>
+      <tr><td class="term">Leverage</td><td>Power or advantage to influence a person or situation.</td><td class="example">"Our unique technology gives us significant leverage."</td></tr>
+      <tr><td class="term">Trade-off</td><td>Giving up one benefit in exchange for another.</td><td class="example">"We can lower the price, but the trade-off is a longer lead time."</td></tr>
+      <tr><td class="term">Deadlock</td><td>A situation where no progress can be made by either side.</td><td class="example">"Negotiations reached a deadlock over the royalty rates."</td></tr>
+      <tr><td class="term">Counter-offer</td><td>An offer made in response to a previous offer.</td><td class="example">"They rejected our bid but sent a reasonable counter-offer."</td></tr>
+      <tr><td class="term">BATNA</td><td>Best Alternative To a Negotiated Agreement — your walk-away point.</td><td class="example">"Know your BATNA before entering any negotiation."</td></tr>
+      <tr><td class="term">Concession</td><td>Something you give up in order to reach an agreement.</td><td class="example">"Never make a concession without receiving one in return."</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">2</div><h2 class="sec-title">The Language of Bargaining — Conditional Sentences</h2></div>
+  <p class="prose">In negotiations, we rarely make absolute promises. We use <strong>conditional sentences</strong> to protect our position while remaining collaborative. The <em>"If… then…"</em> structure is your most important grammatical tool at the negotiating table.</p>
+
+  <div class="formula-box">
+    <div class="formula-title">The "If/Then" Strategy</div>
+    <div class="formula-steps">
+      <div class="formula-step"><span class="formula-num">1.</span><span><strong>Softening the Ask:</strong> <em>"If you were able to increase the order volume, we could consider offering a discount."</em></span></div>
+      <div class="formula-step"><span class="formula-num">2.</span><span><strong>Firm Proposals:</strong> <em>"If you agree to a two-year contract, we will waive the setup fee entirely."</em></span></div>
+      <div class="formula-step"><span class="formula-num">3.</span><span><strong>Provided that:</strong> <em>"Provided that payment is received within 30 days, we would be able to begin immediately."</em></span></div>
+      <div class="formula-step"><span class="formula-num">4.</span><span><strong>Golden Rule:</strong> <em>Never make a concession without a counter-concession.</em> This is the cardinal rule of bargaining.</span></div>
+    </div>
+  </div>
+
+  <div class="exbox">
+    <div class="ex-hdr"><span class="ex-badge">EXERCISE</span><h3 class="ex-title">The Conditional Builder</h3></div>
+    <p class="ex-sub">Turn these flat demands into professional bargaining statements using conditional logic. Type your version and see feedback.</p>
+    ${FI('fi6_1','<strong>Demand:</strong> "Give us a 10% discount and we will sign now."',['if you could','if you were able','provided that','we would be','on condition'])}
+    ${FI('fi6_2','<strong>Demand:</strong> "Pay us in 30 days or we won\'t start the work."',['provided that','if payment','on condition','we would be able','should payment'])}
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">3</div><h2 class="sec-title">The Strategic Architecture of Business Negotiation</h2></div>
+  <div class="reading">
+    <div class="reading-label">Reading</div>
+    <div class="reading-title">The Strategic Architecture of Business Negotiation</div>
+    <p>Negotiation is the lifeblood of the corporate world, serving as the primary mechanism for resolving conflict, allocating resources, and building partnerships. In the modern global marketplace, the image of the "hard-nosed" negotiator pounding the table has been replaced by the strategic communicator who understands that a deal is only successful if it is <strong>sustainable</strong>.</p>
+    <p>The foundation of any sophisticated negotiation is the transition from <strong>"distributive"</strong> to <strong>"integrative"</strong> thinking. In a distributive model, the parties view the negotiation as a zero-sum game—one side's gain is the other's loss. Conversely, a Win-Win strategy seeks to "expand the pie" before dividing it. This is achieved by focusing on <strong>Interests</strong> rather than <strong>Positions</strong>.</p>
+    <p>A position is a concrete demand, such as a specific price point. An interest is the underlying motivation—the "why" behind the demand. By practising transparency and sharing interests, negotiators can uncover "non-linear" solutions. For example, a supplier might not be able to lower their price (Position), but they might offer extended payment terms or faster shipping (Interest)—which provides the buyer with the same net value. This approach transforms an adversary into a collaborator.</p>
+    <p>The <strong>Mechanics of Bargaining</strong> — Once interests are understood, the negotiation enters the Bargaining phase. This is the tactical exchange of variables where the "Golden Rule" applies: <em>Never make a concession without a counter-concession.</em> The use of "If/Then" structures allows a negotiator to remain flexible while protecting their Leverage. During this phase, it is vital to be aware of one's <strong>BATNA</strong>. Your BATNA is your power source; it is the point at which you are willing to walk away from the table. Without a clear BATNA, a negotiator is prone to making emotional concessions that undermine their Bottom Line.</p>
+    <p>The <strong>Art of the Close</strong> — The final hurdle of any negotiation is the Close. A successful close is not an act of coercion, but a process of <em>confirmation</em>. It begins with a <strong>Consensus Summary</strong>, where the lead negotiator recaps every agreed-upon point to ensure there are no hidden disagreements. If a Deadlock occurs, skilled negotiators use "Sweeteners"—small, low-cost concessions—to bridge the gap. In Business English, the close is finalized not just with a signature, but with a forward-looking statement: <em>"We are confident this agreement marks the start of a highly productive partnership."</em></p>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">4</div><h2 class="sec-title">Closing the Deal — and The Silence Tactic</h2></div>
+  <p class="prose">Closing is about confirming details and ensuring no "loose ends" remain. You must also know your BATNA — the point at which you are willing to walk away.</p>
+
+  <div class="pbox">
+    <div class="pbox-title">Closing Phrases</div>
+    <div class="phrases">
+      <div class="ph"><strong>Checking for Agreement:</strong> <em>"Does this sound like a fair proposal to you?"</em></div>
+      <div class="ph"><strong>The Consensus Summary:</strong> <em>"Let me recap the points we've agreed on so far, just to make sure we're aligned..."</em></div>
+      <div class="ph"><strong>Finalising:</strong> <em>"I think we have a deal. Let's get the key terms down in writing today."</em></div>
+      <div class="ph"><strong>Handling Resistance:</strong> <em>"What would it take for you to say 'yes' today?"</em></div>
+      <div class="ph"><strong>Using Sweeteners:</strong> <em>"As a gesture of goodwill, we'd be happy to include [X] at no extra cost."</em></div>
+      <div class="ph"><strong>Forward-Looking Close:</strong> <em>"We are confident this agreement marks the start of a highly productive partnership."</em></div>
+    </div>
+  </div>
+
+  <div class="callout tip"><span class="callout-ico">💡</span><div class="callout-body"><strong>The Silence Tactic:</strong> After making an offer, stop talking completely. The first person to speak often concedes their leverage. Give the other party space to think — silence is not uncomfortable; it is powerful.</div></div>
+
+  <div class="pbox">
+    <div class="pbox-title">Negotiation Idioms — Vocabulary Match-Up</div>
+    <div class="phrases">
+      <div class="ph"><strong>To meet halfway:</strong> To reach an agreement through mutual concession. <em>"We're prepared to meet you halfway on the pricing."</em></div>
+      <div class="ph"><strong>To drive a hard bargain:</strong> To be very demanding and firm in a negotiation. <em>"They certainly drive a hard bargain."</em></div>
+      <div class="ph"><strong>To open high:</strong> To start with a very high (or low) demand as an anchor. <em>"Always open high — you can come down, but you can't go up."</em></div>
+      <div class="ph"><strong>To sweeten the deal:</strong> To add an extra benefit to make an offer more attractive. <em>"We could sweeten the deal by including six months of free support."</em></div>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">5</div><h2 class="sec-title">Match: Negotiation Idioms</h2></div>
+  <div class="exbox">
+    <div class="ex-hdr"><span class="ex-badge">MATCH</span><h3 class="ex-title">Match Each Idiom to Its Meaning</h3></div>
+    <p class="ex-sub">Click an idiom on the left, then click its matching meaning on the right.</p>
+    ${MATCH('m6',
+      ['To meet halfway','To drive a hard bargain','To open high','To sweeten the deal'],
+      ['To reach agreement through mutual concession (B)','To be very demanding in a negotiation (C)','To start with a very high or low anchor demand (A)','To add a bonus to make an offer more attractive (D)']
+    )}
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">6</div><h2 class="sec-title">Quiz: Negotiation Tactics</h2></div>
+  <div class="exbox">
+    <div class="ex-hdr"><span class="ex-badge">QUIZ</span><h3 class="ex-title">Negotiation Language & Strategy</h3></div>
+    <p class="ex-sub">Choose the best answer for each question.</p>
+    ${Q('The professional negotiation version of "Give us 10% off and we\'ll sign now" is:',['Give us a discount or we walk away.','"If you could offer a 10% reduction, we\'d be in a position to sign today."','We demand a 10% reduction, effective immediately.','10% off — non-negotiable.'],1)}
+    ${Q('Which phrase BEST explores the other party\'s underlying interests?',['Our timeline is fixed and non-negotiable.','"What is the main driver behind this particular timeline for your team?"','Here is our final offer — take it or leave it.','We need an answer by end of day.'],1)}
+    ${Q('You\'ve reached a deadlock at the final stage. A "sweetener" in negotiation is:',['A legal threat if the other party doesn\'t comply.','A large concession that forces the other side to agree.','A small, low-cost addition designed to bridge the final gap.','A clause added to make the contract longer.'],2)}
+    ${Q('What does BATNA stand for?',['Best And Total Negotiation Agreement','Business Agreement Trade Notation','Best Alternative To a Negotiated Agreement','Bargaining And Trade Negotiation Approach'],2)}
+    ${Q('In a Win-Win negotiation, the goal is to move from "positions" to:',['Higher demands and firmer stances.','Interests — the underlying motivations behind each demand.','Written contracts as quickly as possible.','Silence, to force the other party to concede.'],1)}
+    <button class="btn-check" onclick="checkQuiz('ch6q')">Submit Quiz</button>
+    <div class="qscore" id="ch6q-score"></div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">7</div><h2 class="sec-title">Roleplay: The Salary / Contract Negotiation</h2></div>
+  <div class="scenario">
+    <div class="sc-label">Practice & Application</div>
+    <div class="sc-text">You are a freelance consultant. A client wants your services but says: <em>"Your daily rate is 20% higher than our budget."</em></div>
+    <div class="sc-divider">
+      <div class="sc-task-label">Use this three-step framework:</div>
+      <div class="sc-steps">
+        <div class="sc-step"><span>1.</span><span><strong>Acknowledge:</strong> "I appreciate that you have a strict budget for this project."</span></div>
+        <div class="sc-step"><span>2.</span><span><strong>Pivot to Value:</strong> "However, my rate includes [X] and [Y], which will save you significant time and cost later."</span></div>
+        <div class="sc-step"><span>3.</span><span><strong>The Trade-off:</strong> "If we were to reduce the number of revisions from three to one, I could bring the rate down slightly. How does that sound?"</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+`,
+
+// ═══════════════════════════════════════
+// CHAPTER 7: CONFLICT & FEEDBACK
+// ═══════════════════════════════════════
+7:()=>`
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">1</div><h2 class="sec-title">The Language of Emotional Intelligence (EQ)</h2></div>
+  <p class="prose">In a high-pressure business environment, conflict is inevitable. However, the difference between a toxic workplace and a high-performing team lies in <strong>Emotional Intelligence (EQ)</strong>. This chapter focuses on the linguistic "buffers" used to deliver difficult news and how to turn a critique into a roadmap for improvement.</p>
+  <p class="prose">In English, being very direct can sometimes be perceived as aggressive. To maintain professional harmony, we use <strong>hedging and distancing language</strong> to separate the person from the problem.</p>
+
+  <div class="pbox">
+    <div class="pbox-title">Techniques for Softening the Blow</div>
+    <div class="phrases">
+      <div class="ph"><strong>Use "I" Statements:</strong> Instead of <em>"You are late with the report,"</em> try <em>"I'm concerned about the timeline for the report."</em></div>
+      <div class="ph"><strong>Depersonalise:</strong> Instead of <em>"Your design is messy,"</em> try <em>"The layout feels a bit cluttered for our brand guidelines."</em></div>
+      <div class="ph"><strong>The "Soft" Opener:</strong> <em>"I'm afraid I have some concerns regarding..."</em> or <em>"To be honest, I was expecting a slightly different approach."</em></div>
+      <div class="ph"><strong>Hypothetical frame:</strong> <em>"I wonder if we might consider a different approach here — what are your thoughts?"</em></div>
+      <div class="ph"><strong>Acknowledge first:</strong> <em>"I can see the effort that's gone into this, and I think with a few adjustments it could be really strong..."</em></div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:16px;color:var(--ink);margin:18px 0 10px">Key Vocabulary</h3>
+  <table class="vocab-tbl">
+    <thead><tr><th>Term</th><th>Definition</th><th>Context Example</th></tr></thead>
+    <tbody>
+      <tr><td class="term">Constructive Criticism</td><td>Advice genuinely intended to help someone improve.</td><td class="example">"I appreciate your constructive criticism on my presentation."</td></tr>
+      <tr><td class="term">Friction</td><td>Disagreement or conflict between people or teams.</td><td class="example">"There is some friction between the sales and tech teams."</td></tr>
+      <tr><td class="term">To de-escalate</td><td>To reduce the intensity of a conflict or argument.</td><td class="example">"His calm tone helped de-escalate the heated argument."</td></tr>
+      <tr><td class="term">Discrepancy</td><td>A lack of compatibility between two facts or figures.</td><td class="example">"There is a discrepancy between the figures in these two files."</td></tr>
+      <tr><td class="term">Buffer</td><td>A softening phrase placed before difficult feedback.</td><td class="example">"Start with a buffer phrase to prevent immediate defensiveness."</td></tr>
+      <tr><td class="term">Hedging language</td><td>Words that soften or reduce the directness of a statement.</td><td class="example">"'It seems as though...' is a classic hedging phrase."</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">2</div><h2 class="sec-title">Delivering Feedback — The Actionable Feedback Loop</h2></div>
+  <p class="prose">A common mistake is using the "Sandwich Method" (Positive-Negative-Positive), which can often feel insincere. Modern Business English favours the <strong>Actionable Feedback Loop</strong> — a more direct and genuinely useful four-step structure.</p>
+
+  <div class="star-row">
+    <div class="star-cell S"><div class="star-letter">1</div><div class="star-word">Observation</div><div class="star-desc">State the specific behaviour — not the person's character. <em>"I noticed that the last two meetings started without the agenda being sent."</em></div></div>
+    <div class="star-cell T"><div class="star-letter">2</div><div class="star-word">Impact</div><div class="star-desc">Explain how it affects the team or project. <em>"This means we spend the first ten minutes catching everyone up."</em></div></div>
+    <div class="star-cell A"><div class="star-letter">3</div><div class="star-word">Question</div><div class="star-desc">Invite their perspective. <em>"What's your take on how we can streamline this?"</em></div></div>
+    <div class="star-cell R"><div class="star-letter">4</div><div class="star-word">Next Step</div><div class="star-desc">Agree on a specific change. <em>"Moving forward, let's ensure the agenda is out 24 hours in advance."</em></div></div>
+  </div>
+
+  <div class="exbox">
+    <div class="ex-hdr"><span class="ex-badge">EXERCISE</span><h3 class="ex-title">The "Buffer" Challenge</h3></div>
+    <p class="ex-sub">Rewrite these harsh statements using softening language, hedging, and EQ. Type your softer version below each.</p>
+    ${FI('fi7_1','<strong>Harsh:</strong> "This idea won\'t work; it\'s too expensive."',['i wonder','perhaps','i\'m afraid','might we','could we consider','some concerns','budget','explore'])}
+    ${FI('fi7_2','<strong>Harsh:</strong> "You didn\'t listen to what the client asked for."',['i notice','it seems','there may be','a gap','perhaps we could','the brief','review'])}
+    ${FI('fi7_3','<strong>Harsh:</strong> "I don\'t like the way you handled that call."',['i had some','i was expecting','i wonder if','a different approach','the way the call','how we might'])}
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">3</div><h2 class="sec-title">Receiving Feedback with Grace</h2></div>
+  <p class="prose">How you <em>receive</em> feedback is just as important as how you deliver it. Defensiveness shuts down communication; curiosity opens it up. The ability to receive feedback graciously is one of the most highly regarded professional qualities.</p>
+
+  <div class="pbox">
+    <div class="pbox-title">Phrases for Receiving Feedback Professionally</div>
+    <div class="phrases">
+      <div class="ph"><strong>Clarifying:</strong> <em>"Could you give me an example of when I did that, so I can understand better?"</em></div>
+      <div class="ph"><strong>Acknowledging:</strong> <em>"I see what you mean — I hadn't looked at it from that perspective. That's really useful."</em></div>
+      <div class="ph"><strong>Commitment:</strong> <em>"Thank you for bringing this to my attention. I'll make sure to prioritise [X] next time."</em></div>
+      <div class="ph"><strong>Stalling (when emotional):</strong> <em>"That's a lot to take in. Can I think about this and get back to you tomorrow morning?"</em></div>
+      <div class="ph"><strong>Showing appreciation:</strong> <em>"I really appreciate you taking the time to share this with me directly."</em></div>
+    </div>
+  </div>
+  <div class="callout tip"><span class="callout-ico">💡</span><div class="callout-body"><strong>Pro Tip — The Stalling Phrase:</strong> If you feel anger or defensiveness rising during feedback, use a stalling phrase to buy time. <em>"That's a lot to take in. Can I reflect on this and get back to you?"</em> A 24-hour pause shows maturity, not weakness.</div></div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">4</div><h2 class="sec-title">Resolving Conflict — A 10-Step Framework</h2></div>
+  <div class="reading">
+    <div class="reading-label">Reading</div>
+    <div class="reading-title">Resolving Conflict in the Workplace</div>
+    <p>Resolving conflicts in the workplace is essential for maintaining a productive and harmonious environment. Conflict resolution involves identifying, addressing, and resolving disagreements in a constructive manner.</p>
+    <p><strong>1. Acknowledge the Conflict.</strong> Avoiding or ignoring conflicts only allows them to escalate. Create a safe space for individuals to express their concerns openly. <strong>2. Listen Actively.</strong> Allow each person to share their perspective without interruption, demonstrating empathy and understanding. <strong>3. Identify the Root Cause.</strong> Ask probing questions to uncover the underlying issue — not just the surface disagreement. <strong>4. Seek Common Ground.</strong> Focus on areas of shared interest that can serve as a foundation for resolution. <strong>5. Generate Solutions.</strong> Brainstorm potential solutions together and explore different options. Encourage creativity and flexibility.</p>
+    <p><strong>6. Communicate Agreements Clearly.</strong> Ensure everyone understands the agreed-upon steps and their responsibilities. <strong>7. Manage Emotions.</strong> Encourage constructive expression of feelings without personal attacks or hostility. <strong>8. Follow Up.</strong> Monitor progress and address any lingering issues promptly to prevent conflicts from recurring. <strong>9. Provide Support.</strong> Offer access to coaching or mediation services as needed. <strong>10. Learn and Grow.</strong> Use conflicts as opportunities for improvement. Reflect on the resolution process and implement strategies to prevent future conflicts.</p>
+  </div>
+
+  <div class="pbox">
+    <div class="pbox-title">Conflict Resolution Phrases — with Strategic Purpose</div>
+    <div class="phrases">
+      <div class="ph"><em>"I hear where you're coming from."</em> <strong>→ Validating the other person's feelings</strong></div>
+      <div class="ph"><em>"I take full responsibility for my part in this situation."</em> <strong>→ Admitting a mistake with accountability</strong></div>
+      <div class="ph"><em>"Let's find a middle ground that works for both of us."</em> <strong>→ Moving toward compromise</strong></div>
+      <div class="ph"><em>"How do you suggest we proceed from here?"</em> <strong>→ Inviting a collaborative solution</strong></div>
+      <div class="ph"><em>"I think we both ultimately want the same outcome — let's focus on that."</em> <strong>→ Finding common ground</strong></div>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">5</div><h2 class="sec-title">Match: Conflict Resolution Phrases</h2></div>
+  <div class="exbox">
+    <div class="ex-hdr"><span class="ex-badge">MATCH</span><h3 class="ex-title">Match Each Phrase to Its Strategic Purpose</h3></div>
+    <p class="ex-sub">Click a phrase on the left, then click its matching purpose on the right.</p>
+    ${MATCH('m7',
+      ['"I hear where you\'re coming from."','"I take full responsibility for..."','"Let\'s find a middle ground."','"How do you suggest we proceed?"'],
+      ['Validating the other person\'s feelings','Admitting a mistake / accountability','Moving toward a compromise','Asking for a collaborative solution']
+    )}
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">6</div><h2 class="sec-title">Quiz: Conflict & Feedback Language</h2></div>
+  <div class="exbox">
+    <div class="ex-hdr"><span class="ex-badge">QUIZ</span><h3 class="ex-title">EQ & Feedback Language Check</h3></div>
+    <p class="ex-sub">Select the most emotionally intelligent and professional response in each situation.</p>
+    ${Q('Harsh: "This idea won\'t work — it\'s too expensive." The EQ rewrite is:',['Your idea is completely unrealistic and won\'t work.','No. This is not possible.','"I\'m wondering if we might explore some alternatives — there may be some budget constraints worth considering."','I don\'t like this idea at all.'],2)}
+    ${Q('Harsh: "You didn\'t listen to what the client asked for." The EQ rewrite is:',['You never listen to anyone.','The client is unhappy with your work.','"I notice there may be a slight gap between the client\'s brief and our current direction — perhaps we could review the requirements together?"','This is wrong.'],2)}
+    ${Q('Which phrase correctly uses the Feedback Loop\'s "Observation" step?',['You\'re always disorganised.','I don\'t like the way you work.','"I noticed that the last two meeting agendas weren\'t sent to the team in advance."','Your work is poor quality.'],2)}
+    ${Q('What is the purpose of a "stalling phrase" when receiving difficult feedback?',['To dismiss the feedback and end the conversation.','To show that you strongly disagree with the person.','To buy time to process feedback without reacting defensively in the moment.','To change the subject quickly.'],2)}
+    ${Q('Complete the conflict phrase: "I hear where you\'re coming from — I want to make sure I..."',['win this argument.','make you feel bad.','move on from this quickly.','fully understand your perspective.'],3)}
+    <button class="btn-check" onclick="checkQuiz('ch7q')">Submit Quiz</button>
+    <div class="qscore" id="ch7q-score"></div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">7</div><h2 class="sec-title">Scenario: The Missed Deadline</h2></div>
+  <div class="scenario">
+    <div class="sc-label">Practice & Application</div>
+    <div class="sc-text">Your teammate Jordan missed a crucial deadline for a client proposal — for the second time this month. You need to address this constructively without damaging your working relationship.</div>
+    <div class="sc-divider">
+      <div class="sc-task-label">Write a short dialogue (4–5 lines) where you:</div>
+      <div class="sc-steps">
+        <div class="sc-step"><span>1.</span><span>Use a <strong>Soft Opener:</strong> <em>"Jordan, do you have a moment? I wanted to have a quick chat about..."</em></span></div>
+        <div class="sc-step"><span>2.</span><span>State the <strong>Observation</strong> — the specific behaviour (missed deadline), without character judgement.</span></div>
+        <div class="sc-step"><span>3.</span><span>Explain the <strong>Impact:</strong> <em>"When this happens, the effect on the team and client is..."</em></span></div>
+        <div class="sc-step"><span>4.</span><span>Ask an <strong>Open Question</strong> to find the root cause: <em>"Can you help me understand what got in the way?"</em></span></div>
+        <div class="sc-step"><span>5.</span><span>Agree on a <strong>Next Step:</strong> <em>"Going forward, could we agree on...?"</em></span></div>
+      </div>
+    </div>
+  </div>
+</div>
+`,
+
+// ═══════════════════════════════════════
+// CHAPTER 8: PROJECT MANAGEMENT
+// ═══════════════════════════════════════
+8:()=>`
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">1</div><h2 class="sec-title">The Language of Effective Delegation</h2></div>
+  <p class="prose">Project management is the art of moving a team from concept to finished product. In Business English, this requires a shift from <em>"doing"</em> to <em>"oversight."</em> This chapter focuses on the <strong>language of accountability</strong> — how to give instructions that get results and how to report progress without over-complicating the message.</p>
+  <p class="prose">Delegation is not just "telling people what to do." It is about <strong>transferring responsibility while providing clarity</strong>. Using modal verbs (can, could, should) and the four-part framework correctly sets the right level of authority.</p>
+
+  <div class="formula-box">
+    <div class="formula-title">The Delegation Framework</div>
+    <div class="formula-steps">
+      <div class="formula-step"><span class="formula-num">1.</span><span><strong>The Objective:</strong> <em>"I'd like you to take ownership of the client onboarding process."</em></span></div>
+      <div class="formula-step"><span class="formula-num">2.</span><span><strong>The Scope:</strong> <em>"Specifically, this involves drafting the welcome emails and setting up the project folders."</em></span></div>
+      <div class="formula-step"><span class="formula-num">3.</span><span><strong>The Support:</strong> <em>"Feel free to reach out if you hit any roadblocks — I'm here to help."</em></span></div>
+      <div class="formula-step"><span class="formula-num">4.</span><span><strong>The Deadline:</strong> <em>"Can we have a rough draft by Wednesday EOD?"</em></span></div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:16px;color:var(--ink);margin:18px 0 10px">Key Vocabulary</h3>
+  <table class="vocab-tbl">
+    <thead><tr><th>Term</th><th>Definition</th><th>Context Example</th></tr></thead>
+    <tbody>
+      <tr><td class="term">Bottleneck</td><td>A point in a process where progress is stalled.</td><td class="example">"The legal review is becoming a bottleneck for the launch."</td></tr>
+      <tr><td class="term">Bandwidth</td><td>The capacity or available time to handle a task.</td><td class="example">"I don't have the bandwidth for another project right now."</td></tr>
+      <tr><td class="term">To oversee</td><td>To supervise a person or piece of work.</td><td class="example">"You will oversee the junior designers on this account."</td></tr>
+      <tr><td class="term">Milestone</td><td>A significant stage or event in a project timeline.</td><td class="example">"Completing the prototype is our biggest milestone this month."</td></tr>
+      <tr><td class="term">Scope creep</td><td>The gradual expansion of a project beyond original goals.</td><td class="example">"We need to actively manage scope creep on this contract."</td></tr>
+      <tr><td class="term">EOD / COB</td><td>End of Day / Close of Business — common deadline markers.</td><td class="example">"Please send the draft by Thursday EOD."</td></tr>
+    </tbody>
+  </table>
+
+  <div class="pbox">
+    <div class="pbox-title">Delegation Phrases — Handing Over Responsibility with Clarity</div>
+    <div class="phrases">
+      <div class="ph"><em>"I'd like you to take the lead on [task] — you'll have full ownership of this."</em></div>
+      <div class="ph"><em>"For context, the reason this is important is [explain the 'why']."</em></div>
+      <div class="ph"><em>"The key deliverable here is [specific output] by [specific date]."</em></div>
+      <div class="ph"><em>"Let me know if the scope changes or if you need any additional resources."</em></div>
+      <div class="ph"><em>"I'd suggest checking in with [name] if you get stuck — they've done something similar."</em></div>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">2</div><h2 class="sec-title">Managing Deadlines and Urgency</h2></div>
+  <p class="prose">Time is the most rigid element of any project. When discussing deadlines, you must be firm but realistic — and always communicate proactively when things change.</p>
+
+  <div class="pbox">
+    <div class="pbox-title">Phrases for Timeline Management</div>
+    <div class="phrases">
+      <div class="ph"><strong>Setting a hard deadline:</strong> <em>"This date is non-negotiable due to the board meeting on the 20th."</em></div>
+      <div class="ph"><strong>Expressing urgency:</strong> <em>"We need to fast-track the approval process — can we get everyone in a room tomorrow?"</em></div>
+      <div class="ph"><strong>Negotiating a buffer:</strong> <em>"To ensure quality isn't compromised, I'd like to build in a two-day review buffer."</em></div>
+      <div class="ph"><strong>Reporting a delay:</strong> <em>"I'm afraid we're running behind schedule on the data migration due to an unexpected technical issue."</em></div>
+      <div class="ph"><strong>Reassigning resources:</strong> <em>"Given the current timeline pressure, I'd like to bring in an additional resource for this phase."</em></div>
+      <div class="ph"><strong>Reprioritising:</strong> <em>"We need to reprioritise this task — it's now on the critical path."</em></div>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">3</div><h2 class="sec-title">The RAG Traffic-Light Status System</h2></div>
+  <p class="prose">When reporting to a manager or client, brevity is key. Many professionals use the <strong>Red-Amber-Green (RAG)</strong> system to communicate project status instantly and clearly, without lengthy explanation.</p>
+
+  <div class="rag-row">
+    <div class="rag-cell G"><div class="rag-dot"></div><div class="rag-head">Green — On Track</div><div class="rag-text">"Everything is moving according to plan. No risks or issues to report at this stage."</div></div>
+    <div class="rag-cell A"><div class="rag-dot"></div><div class="rag-head">Amber — At Risk</div><div class="rag-text">"We've encountered some minor friction with the API, but we are working on a workaround and expect resolution by Thursday."</div></div>
+    <div class="rag-cell R"><div class="rag-dot"></div><div class="rag-head">Red — Blocked</div><div class="rag-text">"The project has stalled because we are awaiting sign-off from the finance department. Escalation may be required."</div></div>
+  </div>
+
+  <div class="exbox">
+    <div class="ex-hdr"><span class="ex-badge">EXERCISE</span><h3 class="ex-title">The Professional Status Update</h3></div>
+    <p class="ex-sub">Rewrite these informal updates into professional "Status Report" English. Type your version below each.</p>
+    ${FI('fi8_1','<strong>Informal:</strong> "I\'m still doing the slides, but I\'ll finish soon."',['currently in progress','the presentation is currently','i expect to deliver','final version','by eod','on track'])}
+    ${FI('fi8_2','<strong>Informal:</strong> "We can\'t do the launch because the website is broken."',['currently on hold','technical issue','our development team','within 24 hours','is currently blocked','investigating'])}
+    ${FI('fi8_3','<strong>Informal:</strong> "Everything is fine and going well."',['the project remains on track','progressing according to plan','no issues to report','all milestones','green status','meeting all'])}
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">4</div><h2 class="sec-title">Job Postings — Professional Language</h2></div>
+  <div class="reading">
+    <div class="reading-label">Sample Job Description</div>
+    <div class="reading-title">Marketing Coordinator — [Company Name]</div>
+    <p><strong>About the Role:</strong> [Company Name] is seeking a <strong>dynamic and motivated</strong> Marketing Coordinator to join our growing team. In this role, you will work closely with the marketing department to develop and implement strategic marketing initiatives that promote our brand and drive business growth.</p>
+    <p><strong>Responsibilities:</strong> Assist in the development and execution of marketing campaigns across digital, print, and social media. Coordinate the production of marketing materials including brochures, flyers, and promotional items. Conduct market research and analysis to identify trends, opportunities, and competitive insights. Maintain and update the company website and social media platforms with engaging content. Monitor and report on the performance of marketing activities, including campaign effectiveness and ROI.</p>
+    <p><strong>Qualifications:</strong> Bachelor's degree in Marketing, Communications, or related field. Strong written and verbal communication skills. Proficiency in Microsoft Office Suite and marketing software. Ability to multitask, prioritise, and meet deadlines in a fast-paced environment.</p>
+  </div>
+
+  <div class="pbox">
+    <div class="pbox-title">Job Posting Phrases — Key Professional Language</div>
+    <div class="phrases">
+      <div class="ph"><em>"We are seeking a dynamic and motivated [Job Title] to join our growing team."</em></div>
+      <div class="ph"><em>"In this role, you will be responsible for [brief description of key responsibilities]."</em></div>
+      <div class="ph"><em>"The ideal candidate will have [mention key qualifications or skills required]."</em></div>
+      <div class="ph"><em>"Interested candidates should submit a resume and cover letter outlining their qualifications."</em></div>
+      <div class="ph"><em>"We offer a competitive salary and benefits package commensurate with experience."</em></div>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">5</div><h2 class="sec-title">Quiz: Project Management Language</h2></div>
+  <div class="exbox">
+    <div class="ex-hdr"><span class="ex-badge">QUIZ</span><h3 class="ex-title">Accountability & Status Language</h3></div>
+    <p class="ex-sub">Choose the most professional version of each update or scenario.</p>
+    ${Q('Informal: "I\'m still doing the slides, but I\'ll finish soon." Professional version:',['Slides coming soon!','Almost there!','"The presentation is currently in progress, and I expect to deliver the final version by EOD tomorrow."','Not done yet, but close.'],2)}
+    ${Q('Informal: "We can\'t launch because the website is broken." Professional version:',['Website broken, can\'t launch.','"The launch is currently on hold due to a technical issue with the website. Our development team is investigating and will provide an update within 24 hours."','There are website problems.','Launch delayed indefinitely.'],1)}
+    ${Q('What does "scope creep" refer to in project management?',['When a project finishes ahead of schedule.','A technical software glitch.','When team members take too many breaks.','The gradual expansion of a project beyond its original agreed objectives.'],3)}
+    ${Q('Which sentence describes an Amber (At Risk) RAG status?',['Everything is on track — no issues to report.','"The project has completely stalled and cannot proceed without executive sign-off."','"We\'ve encountered some friction with the API, but we\'re working on a workaround and expect resolution by Thursday."','We missed the deadline yesterday.'],2)}
+    ${Q('"To fast-track" a process means:',['To slow it down for quality control.','To cancel it entirely.','To delegate it to a junior team member.','To accelerate or prioritise it above all other work.'],3)}
+    <button class="btn-check" onclick="checkQuiz('ch8q')">Submit Quiz</button>
+    <div class="qscore" id="ch8q-score"></div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">6</div><h2 class="sec-title">Task: The Delegation Email</h2></div>
+  <div class="scenario">
+    <div class="sc-label">Practice & Application</div>
+    <div class="sc-text">You are a Project Manager. You need your colleague Sarah to research three competitors for a new marketing pitch due to the client next Friday.</div>
+    <div class="sc-divider">
+      <div class="sc-task-label">Write a short email including all four framework elements:</div>
+      <div class="sc-steps">
+        <div class="sc-step"><span>1.</span><span><strong>The Objective (The "What" and "Why"):</strong> Why this research matters and what it will be used for.</span></div>
+        <div class="sc-step"><span>2.</span><span><strong>The Scope:</strong> Which three competitors, what information is needed (pricing, messaging, positioning), and the format (a one-page brief).</span></div>
+        <div class="sc-step"><span>3.</span><span><strong>The Deadline (The "When"):</strong> <em>"Could we have this by Thursday EOD at the latest?"</em></span></div>
+        <div class="sc-step"><span>4.</span><span><strong>The Safety Net:</strong> <em>"Please don't hesitate to reach out if you hit any roadblocks — I'm happy to help."</em></span></div>
+      </div>
+    </div>
+  </div>
+</div>
+`,
+
+// ═══════════════════════════════════════
+// CHAPTER 9: INTERCULTURAL COMPETENCE
+// ═══════════════════════════════════════
+9:()=>`
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">1</div><h2 class="sec-title">Decoding Low-Context vs. High-Context Cultures</h2></div>
+  <p class="prose">In a globalised economy, "fluent English" is only half the battle. The other half is understanding the cultural "software" behind the language. This chapter explores how different cultures communicate — specifically the division between those who say exactly what they mean, and those who expect you to <em>read between the lines.</em></p>
+  <p class="prose">Anthropologist <strong>Edward T. Hall</strong> divided cultures into Low-Context and High-Context. Understanding where your business partner falls on this spectrum can prevent major — and costly — misunderstandings.</p>
+
+  <div class="safe-unsafe">
+    <div class="safe-col safe">
+      <div class="safe-col-title">Low-Context Cultures<br><small style="font-weight:400;letter-spacing:0">(USA, Germany, Netherlands, Australia)</small></div>
+      <div class="safe-item">Communication: Direct, precise, and explicit.</div>
+      <div class="safe-item">The Rule: "Say what you mean."</div>
+      <div class="safe-item">Meetings: Focused on the agenda; silence is uncomfortable.</div>
+      <div class="safe-item">Contracts: Highly detailed; the written word is final.</div>
+      <div class="safe-item">"Yes" means: Yes.</div>
+    </div>
+    <div class="safe-col unsafe" style="background:var(--teal-pale);border-color:#9AD5CB">
+      <div class="safe-col-title" style="color:var(--teal)">High-Context Cultures<br><small style="font-weight:400;letter-spacing:0">(Japan, China, UAE, Brazil, France)</small></div>
+      <div class="safe-item" style="color:var(--text2)">Communication: Indirect; message is in the relationship and non-verbal cues.</div>
+      <div class="safe-item" style="color:var(--text2)">The Rule: "Read between the lines."</div>
+      <div class="safe-item" style="color:var(--text2)">Meetings: Trust-building first; business follows.</div>
+      <div class="safe-item" style="color:var(--text2)">Contracts: A starting point; relationship matters more.</div>
+      <div class="safe-item" style="color:var(--text2)">"Yes" means: Sometimes "maybe" or even "no."</div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:16px;color:var(--ink);margin:18px 0 10px">Key Vocabulary</h3>
+  <table class="vocab-tbl">
+    <thead><tr><th>Term</th><th>Definition</th><th>Context Example</th></tr></thead>
+    <tbody>
+      <tr><td class="term">To read between the lines</td><td>To understand the implied meaning, not just the words.</td><td class="example">"In high-context cultures, you must read between the lines."</td></tr>
+      <tr><td class="term">Face-saving</td><td>Avoiding humiliation or preserving one's reputation and dignity.</td><td class="example">"He agreed politely just for face-saving purposes."</td></tr>
+      <tr><td class="term">Explicit</td><td>Stated clearly and in detail, leaving no room for confusion.</td><td class="example">"I need an explicit confirmation before we ship the order."</td></tr>
+      <tr><td class="term">Implicit</td><td>Suggested though not directly expressed.</td><td class="example">"There was an implicit understanding the price was negotiable."</td></tr>
+      <tr><td class="term">Intercultural Competence</td><td>The ability to communicate effectively across different cultures.</td><td class="example">"Intercultural competence is the most valued soft skill globally."</td></tr>
+      <tr><td class="term">Hierarchy</td><td>A system ranking members by relative status or authority.</td><td class="example">"In high-context cultures, hierarchy shapes who speaks first."</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">2</div><h2 class="sec-title">The Feedback Gap</h2></div>
+  <p class="prose">The way we say "No" or offer criticism varies wildly across cultures. What sounds politely indirect in one culture sounds evasive or untrustworthy in another. Decoding these signals is critical for global business success.</p>
+
+  <table class="cmp-tbl">
+    <thead><tr><th>High-Context Phrase</th><th>What It Actually Means</th><th>Low-Context Equivalent</th></tr></thead>
+    <tbody>
+      <tr><td>"We will do our best to meet that deadline."</td><td>We may not meet this deadline.</td><td>"We cannot guarantee this deadline will be met."</td></tr>
+      <tr><td>"I'm not sure if everyone is in full agreement yet."</td><td>There is significant opposition to this.</td><td>"There is disagreement in the team that needs to be resolved."</td></tr>
+      <tr><td>"That is a very brave suggestion." (UK English)</td><td>This is a bad idea.</td><td>"I have significant concerns about this approach."</td></tr>
+      <tr><td>"That will be very difficult."</td><td>No — we cannot do this.</td><td>"We are unable to proceed with this request."</td></tr>
+      <tr><td>"We will consider it."</td><td>Probably not.</td><td>"We are unlikely to move forward with this."</td></tr>
+    </tbody>
+  </table>
+
+  <div class="exbox">
+    <div class="ex-hdr"><span class="ex-badge">EXERCISE</span><h3 class="ex-title">The Translation Challenge</h3></div>
+    <p class="ex-sub">How would a Low-Context person say these High-Context phrases? Type the direct, explicit equivalent below each.</p>
+    ${FI('fi9_1','<strong>High-Context:</strong> "We will do our best to meet that deadline."',['cannot guarantee','we may not','unable to confirm','unlikely to meet','not confident','the deadline cannot'])}
+    ${FI('fi9_2','<strong>High-Context:</strong> "I\'m not sure if everyone is in full agreement yet."',['disagreement','not everyone agrees','significant opposition','there is resistance','some team members disagree','requires resolution'])}
+    ${FI('fi9_3','<strong>High-Context:</strong> "That is a very brave suggestion." (UK English)',['significant concerns','i don\'t think','this isn\'t','bad idea','not the right direction','serious reservations'])}
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">3</div><h2 class="sec-title">Bridging the Divide — The Full Reading</h2></div>
+  <div class="reading">
+    <div class="reading-label">Reading</div>
+    <div class="reading-title">Bridging the Divide: Navigating Cultural Gaps in Global Business</div>
+    <p>In the modern era of the "global office," professional success is no longer defined solely by technical expertise or fluency in English. Instead, it is increasingly dependent on <strong>Intercultural Competence</strong> — the ability to recognise, respect, and adapt to the invisible cultural "rules" that govern international business.</p>
+    <p>The most significant cultural gap in business lies in how information is delivered. In <strong>Low-Context cultures</strong> such as the USA and Germany, communication is explicit. The burden of clarity lies with the speaker; if a message is misunderstood, it is because the sender was not precise enough. In these environments, "yes" means "yes," and a contract is a literal, binding document. Conversely, in <strong>High-Context cultures</strong> such as Japan, China, Brazil, and many Arab nations, communication is implicit. The message is layered within the relationship, hierarchy, and non-verbal cues. The burden of understanding lies with the <em>listener</em>, who must "read between the lines."</p>
+    <p>For instance, a Japanese businessman might say, <em>"That will be very difficult,"</em> which a Low-Context partner might interpret as a challenge to be solved, whereas it is actually a polite, high-context "No."</p>
+    <p><strong>Navigating the Feedback Gap:</strong> There is often a surprising disconnect between a culture's overall directness and its approach to criticism. To interact efficiently, one must adopt a "style-switching" approach. When working with direct cultures, be honest and transparent to avoid appearing "slippery" or untrustworthy. When working with indirect cultures, use hedging and face-saving techniques. Instead of saying "This report is incorrect," an efficient communicator might say, <em>"I have a few questions regarding the data on page five; perhaps we could review it together?"</em></p>
+    <p><strong>Strategies for Efficient Interaction:</strong> 1. <em>The Summary Habit:</em> In multicultural meetings, always conclude with a written summary of action points. 2. <em>Develop EQ:</em> Observe the "silence" and the "seating" — in many cultures, who speaks first is more important than what is actually said. 3. <em>Active Inquiry:</em> Instead of "Do you understand?" (which may force a face-saving "Yes"), ask "How do you see this timeline affecting your team's current workload?"</p>
+  </div>
+
+  <div class="pbox">
+    <div class="pbox-title">Vocabulary Spotlight — Intercultural Competence</div>
+    <div class="phrases">
+      <div class="ph"><strong>Intercultural Competence:</strong> The ability to communicate effectively and appropriately with people from other cultural backgrounds.</div>
+      <div class="ph"><strong>To save face:</strong> To avoid humiliation or preserve a person's reputation, dignity, or standing in the eyes of others.</div>
+      <div class="ph"><strong>Linguistic buffers:</strong> Softening language used to make a statement less direct or confrontational.</div>
+      <div class="ph"><strong>Hierarchy:</strong> A system in which members of an organisation are ranked according to relative status — often shapes who speaks, in what order, and how directly.</div>
+      <div class="ph"><strong>Style-switching:</strong> The ability to adjust your communication style to match the cultural context of each meeting or negotiation.</div>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">4</div><h2 class="sec-title">Navigating the Silence</h2></div>
+  <p class="prose">In some cultures, silence is a sign of respect and contemplation. In others, it is a sign of disagreement or a lack of information. Understanding this difference is critical.</p>
+  <div class="callout note"><span class="callout-ico">💬</span><div class="callout-body"><strong>USA / UK:</strong> A five-second silence in a meeting feels like an eternity — someone will usually jump in to fill it immediately.</div></div>
+  <div class="callout sage"><span class="callout-ico">🧘</span><div class="callout-body"><strong>East Asia / Japan:</strong> Silence is often used to show that you are <em>seriously considering</em> what the other person just said. Filling the silence immediately can be seen as disrespectful.</div></div>
+  <div class="callout tip"><span class="callout-ico">💡</span><div class="callout-body"><strong>The Professional Adaptation:</strong> In multicultural settings, always conclude with a <em>written</em> summary of action points. This translates high-context implicit discussions into low-context explicit clarity — ensuring everyone leaves with the same understanding, regardless of their cultural background.</div></div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">5</div><h2 class="sec-title">Quiz: Intercultural Competence</h2></div>
+  <div class="exbox">
+    <div class="ex-hdr"><span class="ex-badge">QUIZ</span><h3 class="ex-title">Test Your Cultural Intelligence</h3></div>
+    <p class="ex-sub">Select the best answer for each scenario.</p>
+    ${Q('A Japanese partner says "That will be very difficult." This most likely means:',['They need more resources and time to complete the task.','They are open to negotiation on the terms.','They will try their absolute best to deliver.','They cannot do it — this is a polite, high-context "No."'],3)}
+    ${Q('In Low-Context cultures, silence in a business meeting is usually interpreted as:',['Deep respect and careful contemplation.','Agreement with what was just said.','A power move to control the room.','Disagreement, confusion, or a lack of preparation.'],3)}
+    ${Q('"Face-saving" in a business communication context means:',['Applying facial recognition software.','Being dishonest to avoid conflict.','Saving your LinkedIn profile photo.','Avoiding actions that would humiliate or embarrass someone in front of others.'],3)}
+    ${Q('Which question is BEST for confirming understanding in a multicultural team?',['"Do you understand the plan?"','"Is that clear to everyone?"','"Any questions at all?"','"How do you see this timeline affecting your team\'s current workload?"'],3)}
+    ${Q('The "style-switching" approach in global business means:',['Making everyone communicate in the same direct style.','Adjusting your communication style to match the cultural context of each partner.','Forcing high-context cultures to adopt detailed written contracts.','Avoiding multicultural teams wherever possible.'],1)}
+    <button class="btn-check" onclick="checkQuiz('ch9q')">Submit Quiz</button>
+    <div class="qscore" id="ch9q-score"></div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">6</div><h2 class="sec-title">Match: High-Context Phrases to Their True Meaning</h2></div>
+  <div class="exbox">
+    <div class="ex-hdr"><span class="ex-badge">MATCH</span><h3 class="ex-title">Decode the Implicit Message</h3></div>
+    <p class="ex-sub">Match each high-context phrase to what it most likely means in a business context.</p>
+    ${MATCH('m9',
+      ['"That will be very difficult."','"We will consider it."','"That is a very brave suggestion."','"We will do our best."'],
+      ['"No — we cannot do this."','"Probably not — we are unlikely to proceed."','"This is a bad idea — I have serious concerns."','"We may not be able to meet this deadline."']
+    )}
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">7</div><h2 class="sec-title">Scenario: The Global Zoom Call</h2></div>
+  <div class="scenario">
+    <div class="sc-label">Practice & Application</div>
+    <div class="sc-text">You are a project lead on a Zoom call with a partner who has missed a deadline. They keep talking about how busy the team has been and how much they value the partnership — but they won't say when the work will actually be done.</div>
+    <div class="sc-divider">
+      <div class="sc-task-label">Write a culturally sensitive response that still gets the information you need:</div>
+      <div class="sc-steps">
+        <div class="sc-step"><span>1.</span><span><strong>Acknowledge the relationship first:</strong> "Thank you so much for your team's continued dedication — we truly value this partnership."</span></div>
+        <div class="sc-step"><span>2.</span><span><strong>Ask for a specific milestone date</strong> — not an explanation for the failure (which would cause face-loss): "To help us plan our side effectively, could you share a specific date we can work towards together?"</span></div>
+        <div class="sc-step"><span>3.</span><span><strong>Offer a written summary</strong> after the call to confirm agreed points — turning implicit into explicit.</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="example-block">
+    <div class="example-label">Model Response</div>
+    <div class="example-text">"Thank you so much for your team's continued dedication to this — it's clear this partnership means a great deal to everyone involved, and we feel the same way. To help us plan our side effectively, could you share a specific milestone date that we can work towards together? Just to keep everyone aligned, I'll send a brief written summary after this call confirming the key points we've agreed on."</div>
+  </div>
+</div>
+`,
+
+// ═══════════════════════════════════════
+// CHAPTER 10: BUSINESS STRATEGY
+// ═══════════════════════════════════════
+10:()=>`
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">1</div><h2 class="sec-title">The SWOT Analysis Framework</h2></div>
+  <p class="prose">Strategic thinking is the ability to see the "big picture." To communicate strategy in English, you need to move beyond describing <em>what is happening</em> to explaining <em>why it matters</em> and <em>how the organisation should respond.</em> This final chapter integrates everything you've learned into a cohesive business case.</p>
+  <p class="prose">The SWOT analysis is the standard framework for strategic auditing. In a professional setting, you don't just list items — you <strong>categorise them to justify a future decision or recommendation</strong>.</p>
+
+  <div class="swot">
+    <div class="swot-cell S"><div class="swot-lbl">Strengths</div><div class="swot-name">Internal — Positive</div><div class="swot-body">What do we do better than anyone else? Patented technology, brand loyalty, exceptional talent, proprietary data, award-winning culture.</div></div>
+    <div class="swot-cell W"><div class="swot-lbl">Weaknesses</div><div class="swot-name">Internal — Negative</div><div class="swot-body">Where do we lack resources or capability? High staff turnover, outdated IT systems, over-reliance on one client, limited budget.</div></div>
+    <div class="swot-cell O"><div class="swot-lbl">Opportunities</div><div class="swot-name">External — Positive</div><div class="swot-body">What trends can we exploit? Emerging markets, changing regulations, competitor gaps, new technology, demographic shifts.</div></div>
+    <div class="swot-cell T"><div class="swot-lbl">Threats</div><div class="swot-name">External — Negative</div><div class="swot-body">What could damage us? New disruptive competitors, economic downturn, shifting consumer behaviour, talent shortages.</div></div>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:16px;color:var(--ink);margin:18px 0 10px">Key Vocabulary</h3>
+  <table class="vocab-tbl">
+    <thead><tr><th>Term</th><th>Definition</th><th>Context Example</th></tr></thead>
+    <tbody>
+      <tr><td class="term">Core Competency</td><td>A defining capability or advantage unique to a firm.</td><td class="example">"Our core competency is rapid, customer-led product innovation."</td></tr>
+      <tr><td class="term">Scalability</td><td>The ability of a business to grow without proportional cost increases.</td><td class="example">"The SaaS model offers excellent scalability."</td></tr>
+      <tr><td class="term">Market Penetration</td><td>The extent to which a product is recognised and bought in a market.</td><td class="example">"We need higher market penetration in Southeast Asia."</td></tr>
+      <tr><td class="term">Sustainable</td><td>Able to be maintained at a certain level over the long term.</td><td class="example">"This aggressive pricing strategy is not sustainable long-term."</td></tr>
+      <tr><td class="term">First-mover advantage</td><td>The benefit gained by being first to enter a new market.</td><td class="example">"Entering now gives us first-mover advantage over competitors."</td></tr>
+      <tr><td class="term">Value Proposition</td><td>The unique value a product or service delivers to its customers.</td><td class="example">"Our value proposition is speed, quality, and unmatched support."</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">2</div><h2 class="sec-title">Analysing Case Studies</h2></div>
+  <p class="prose">A case study is a "story" of a business problem and its solution. When discussing a case study in English, use analytical phrases to demonstrate <strong>deep, strategic thinking</strong> — not just a retelling of events.</p>
+
+  <div class="pbox">
+    <div class="pbox-title">Useful Analytical Phrases</div>
+    <div class="phrases">
+      <div class="ph"><strong>Identifying the root cause:</strong> <em>"The underlying issue seems to be a fundamental lack of communication between the product and commercial teams."</em></div>
+      <div class="ph"><strong>Evaluating the solution:</strong> <em>"While the initial results were positive, the long-term ROI proved negligible due to poor implementation."</em></div>
+      <div class="ph"><strong>Drawing a lesson:</strong> <em>"What the Nokia case teaches us is the very real danger of technological complacency."</em></div>
+      <div class="ph"><strong>Making a recommendation:</strong> <em>"Based on this analysis, I would recommend a phased market-entry approach beginning with two pilot cities."</em></div>
+      <div class="ph"><strong>Connecting to strategy:</strong> <em>"By leveraging our core competency in data analytics, we can tap into this opportunity before our competitors do."</em></div>
+      <div class="ph"><strong>Challenging assumptions:</strong> <em>"One might argue that the real issue here isn't pricing — it's a fundamental misalignment between product and customer."</em></div>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">3</div><h2 class="sec-title">The Final Pitch — The V.A.P. Structure</h2></div>
+  <p class="prose">The "Final Pitch" is where you combine the data storytelling from Chapter 4, the negotiation skills from Chapter 6, and the strategic vision from Chapter 10 into one compelling presentation. A winning pitch follows the <strong>V.A.P. structure:</strong></p>
+
+  <div class="vap-row">
+    <div class="vap-cell V"><div class="vap-letter">V</div><div class="vap-word">Value Proposition</div><div class="vap-desc">What specific problem are you solving, and for whom? Make it concrete and quantifiable.</div></div>
+    <div class="vap-cell A"><div class="vap-letter">A</div><div class="vap-word">Advantage</div><div class="vap-desc">Why are you better than the current alternative? What makes you uniquely positioned?</div></div>
+    <div class="vap-cell P"><div class="vap-letter">P</div><div class="vap-word">Proof</div><div class="vap-desc">What data, case studies, or testimonials validate your claim? Show — don't just tell.</div></div>
+  </div>
+
+  <div class="pbox">
+    <div class="pbox-title">The Language of Persuasion</div>
+    <div class="phrases">
+      <div class="ph"><em>"We are uniquely positioned to address this gap in the market before our competitors do."</em></div>
+      <div class="ph"><em>"By leveraging our [Strength], we can tap into [Opportunity] and secure first-mover advantage."</em></div>
+      <div class="ph"><em>"This move will allow us to stay ahead of the curve and set the industry standard."</em></div>
+      <div class="ph"><em>"The data shows a clear correlation between [X] and [Y], which validates our approach."</em></div>
+      <div class="ph"><em>"Based on a comparable case with [Company], we can project [specific, measurable outcome]."</em></div>
+      <div class="ph"><em>"The question isn't whether we should do this — it's whether we can afford not to."</em></div>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">4</div><h2 class="sec-title">Company Profile — Presenting Your Organisation</h2></div>
+  <div class="reading">
+    <div class="reading-label">Model Text — Presenting Your Company</div>
+    <div class="reading-title">Company Profile, Philosophy & Structure</div>
+    <p>Welcome. Allow me to introduce our company, [Company Name]. Founded on the principles of innovation, integrity, and excellence, we strive to [mention overarching goals or mission statement]. Our company profile reflects our commitment to fostering growth — both for our organisation and the communities we serve.</p>
+    <p>At [Company Name], we believe in embracing <strong>diversity and inclusivity</strong> as key drivers of success. Our philosophy centres around creating a collaborative and inclusive work environment where every individual's unique talents and perspectives are valued and respected. We foster a culture of continuous learning and development, empowering our employees to reach their full potential and contribute meaningfully to our collective goals.</p>
+    <p>In terms of structure, [Company Name] operates on a [flat hierarchy / matrix structure / etc.], allowing for streamlined communication and agile decision-making. Our organisation is structured around key departments — from Sales & Marketing, to R&D, to Operations — each playing a vital role in driving our success. Our dedicated teams work synergistically to deliver innovative solutions and exceptional client experiences.</p>
+    <p>In summary, [Company Name] is more than just a business — it's a community united by a shared vision and a passion for excellence. We look forward to the opportunity to discuss how we can create mutual value together.</p>
+  </div>
+
+  <div class="pbox">
+    <div class="pbox-title">Company Profile Key Phrases</div>
+    <div class="phrases">
+      <div class="ph"><em>"Founded on the principles of [values], we are committed to [mission]."</em></div>
+      <div class="ph"><em>"Our core competency lies in [specific capability], which allows us to [specific outcome]."</em></div>
+      <div class="ph"><em>"We operate across [X] markets and serve [Y] clients globally."</em></div>
+      <div class="ph"><em>"Our philosophy centres around creating a collaborative environment where every individual's unique contribution is valued."</em></div>
+      <div class="ph"><em>"We look forward to the opportunity to explore a mutually beneficial and long-term partnership."</em></div>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">5</div><h2 class="sec-title">Quiz: Business Strategy</h2></div>
+  <div class="exbox">
+    <div class="ex-hdr"><span class="ex-badge">QUIZ</span><h3 class="ex-title">Final Chapter Knowledge Check</h3></div>
+    <p class="ex-sub">Apply strategic thinking to each question — this is your final quiz!</p>
+    ${Q('A company\'s "high staff turnover" is an example of which SWOT category?',['Strength','Opportunity','Threat','Weakness'],3)}
+    ${Q('An emerging market a company can now access is an example of a SWOT:',['Strength','Weakness','Opportunity','Threat'],2)}
+    ${Q('In the V.A.P. pitch structure, "Proof" means:',['Proving you are the best person in the room.','Proving your competitor is worse.','A legal contract or guarantee.','Data, case studies, or testimonials that validate your claim.'],3)}
+    ${Q('"Scalability" in business strategy means:',['Making a company physically smaller.','Reducing staff numbers in a downturn.','Measuring the scale of a target market.','The ability to grow revenue without proportionally increasing costs.'],3)}
+    ${Q('Which phrase best opens a strategic pitch with a "Hook"?',['Good afternoon. Today I will present our strategy.','I have prepared a presentation for you today.','We have some interesting findings to share.','"Imagine being able to triple your market share within 18 months — with half the acquisition cost. Our data shows this is achievable."'],3)}
+    <button class="btn-check" onclick="checkQuiz('ch10q')">Submit Final Quiz</button>
+    <div class="qscore" id="ch10q-score"></div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">6</div><h2 class="sec-title">Exercise: Strategic SWOT Thinking</h2></div>
+  <div class="exbox">
+    <div class="ex-hdr"><span class="ex-badge">EXERCISE</span><h3 class="ex-title">Build a SWOT in Full Professional Sentences</h3></div>
+    <p class="ex-sub">Choose a famous company (e.g., Netflix, Tesla, Apple, or a local favourite) and write one full professional sentence for each SWOT category. Use analytical language — don't just list words.</p>
+    <div class="swot" style="margin-top:14px">
+      <div class="swot-cell S"><div class="swot-lbl">Strength</div><textarea class="swot-inp" placeholder="e.g. 'Netflix's core strength lies in its proprietary recommendation algorithm, which drives significantly higher engagement rates than any competitor in the streaming market.'"></textarea></div>
+      <div class="swot-cell W"><div class="swot-lbl">Weakness</div><textarea class="swot-inp" placeholder="e.g. 'A notable weakness is the company's heavy reliance on licensed third-party content, which creates significant cost and supply vulnerability.'"></textarea></div>
+      <div class="swot-cell O"><div class="swot-lbl">Opportunity</div><textarea class="swot-inp" placeholder="e.g. 'The rapid growth of the streaming market in Southeast Asia represents a significant and largely untapped opportunity for expansion.'"></textarea></div>
+      <div class="swot-cell T"><div class="swot-lbl">Threat</div><textarea class="swot-inp" placeholder="e.g. 'The emergence of well-funded competing platforms such as Disney+ and Apple TV+ poses a considerable and growing threat to subscriber retention.'"></textarea></div>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr"><div class="sec-num">7</div><h2 class="sec-title">The Graduation Task — The 3-Minute Strategy Pitch</h2></div>
+  <div class="scenario">
+    <div class="sc-label">Final Capstone Task</div>
+    <div class="sc-text">You are proposing that your company enters a new market — either a new country or a new product line. Prepare and deliver your 3-minute strategy pitch to the leadership team.</div>
+    <div class="sc-divider">
+      <div class="sc-task-label">Structure your pitch using skills from all 10 chapters:</div>
+      <div class="sc-steps">
+        <div class="sc-step"><span>1.</span><span><strong>Opening — The Hook (Ch.4):</strong> Use a striking statistic, an "Imagine..." scenario, or a provocative question to grab attention immediately.</span></div>
+        <div class="sc-step"><span>2.</span><span><strong>Body — SWOT Insight (Ch.10):</strong> Reference one internal Strength and one external Opportunity. Show you've done the strategic work.</span></div>
+        <div class="sc-step"><span>3.</span><span><strong>Body — V.A.P. Structure (Ch.10):</strong> Present your Value Proposition, your competitive Advantage, and your Proof point.</span></div>
+        <div class="sc-step"><span>4.</span><span><strong>Closing — Call to Action (Ch.1 & Ch.3):</strong> End by proposing a clear, specific next step and invite questions with confidence.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout sage" style="margin-top:20px"><span class="callout-ico">🎓</span><div class="callout-body"><strong>Congratulations on completing GECS Business English Mastery!</strong> Over 10 chapters, you have built the language of networking, digital communication, meetings, presentations, interviews, negotiation, conflict resolution, project management, intercultural intelligence, and strategic thinking. You have now earned what this course calls <strong>"Professional Fluidity"</strong> — the ability to move seamlessly between a casual coffee chat, a high-pressure board meeting, and a complex cross-cultural negotiation. The world of international business is yours.</div></div>
+</div>
+`
+
+}); // END Object.assign
+
+</script>
+</body>
+</html>
