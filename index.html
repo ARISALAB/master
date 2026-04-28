@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GECS Business English Mastery — 10-Week Course</title>
+<title>GECS Business English Mastery</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --ink:#0F1923;--ink2:#1C2B3A;--ink3:#243447;
-  --gold:#C9943A;--gold2:#DFB05C;--gold-pale:#FBF4E8;--gold-mid:#F5E4C3;
-  --teal:#1E9E8A;--teal-pale:#E4F5F2;
+  --ink:#1A3A5C;--ink2:#1E4068;--ink3:#245080;
+  --gold:#4A8FBF;--gold2:#6AAED6;--gold-pale:#E8F4FB;--gold-mid:#C2DFF0;
+  --teal:#3A7FBF;--teal-pale:#E0F0FB;
   --rose:#C94040;--rose-pale:#FAEAEA;
   --sage:#3A8A5C;--sage-pale:#E6F3EC;
-  --slate:#5A6A7A;--slate2:#8A9AAA;--slate3:#BCC8D4;
-  --bg:#F5F3EF;--paper:#FFFDF9;--white:#FFFFFF;
-  --border:#E0D8CC;--border2:#C8BDB0;
-  --text:#1A2530;--text2:#3D4F5F;--text3:#6A7F8F;
+  --slate:#3A5A78;--slate2:#6A8AAA;--slate3:#9AB8CC;
+  --bg:#F0F5FA;--paper:#FAFCFF;--white:#FFFFFF;
+  --border:#C8D8E8;--border2:#A8C0D8;
+  --text:#102030;--text2:#284050;--text3:#4A6A88;
   --r:10px;--r-sm:6px;--r-lg:16px;--r-xl:22px;
 }
 body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;line-height:1.6}
@@ -31,8 +31,8 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
 /* ────────────── WELCOME ────────────── */
 #welcome{background:var(--ink);position:relative;overflow:hidden}
 .w-pattern{position:absolute;inset:0;opacity:0.04;background-image:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 50%);background-size:20px 20px}
-.w-glow{position:absolute;top:-200px;right:-100px;width:600px;height:600px;background:radial-gradient(circle,rgba(201,148,58,0.15),transparent 70%);pointer-events:none}
-.w-glow2{position:absolute;bottom:-200px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(30,158,138,0.1),transparent 70%);pointer-events:none}
+.w-glow{position:absolute;top:-200px;right:-100px;width:600px;height:600px;background:radial-gradient(circle,rgba(106,174,214,0.2),transparent 70%);pointer-events:none}
+.w-glow2{position:absolute;bottom:-200px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(58,127,191,0.12),transparent 70%);pointer-events:none}
 .w-inner{position:relative;z-index:1;max-width:1000px;margin:0 auto;padding:70px 48px;min-height:100vh;display:flex;flex-direction:column;justify-content:center}
 .w-eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(201,148,58,0.35);color:var(--gold2);padding:5px 16px;border-radius:50px;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:28px}
 .w-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:blink 2s infinite}
@@ -43,8 +43,8 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
 .w-stats{display:flex;gap:48px;margin-bottom:52px;flex-wrap:wrap}
 .w-stat-n{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--gold2);display:block}
 .w-stat-l{font-size:12px;color:rgba(255,255,255,0.35);letter-spacing:0.5px;margin-top:2px;display:block}
-.btn-start{display:inline-flex;align-items:center;gap:12px;background:var(--gold);color:var(--ink);padding:15px 40px;border-radius:50px;font-family:'Playfair Display',serif;font-weight:700;font-size:17px;border:none;cursor:pointer;transition:all 0.2s;letter-spacing:0.2px}
-.btn-start:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 32px rgba(201,148,58,0.3)}
+.btn-start{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,#5B9FD0,#3A7FBF);color:#fff;padding:15px 40px;border-radius:50px;font-family:'Playfair Display',serif;font-weight:700;font-size:17px;border:none;cursor:pointer;transition:all 0.2s;letter-spacing:0.2px}
+.btn-start:hover{background:linear-gradient(135deg,#6AAED6,#4A8FBF);transform:translateY(-2px);box-shadow:0 8px 32px rgba(58,127,191,0.35)}
 .w-chapters{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin-top:60px}
 .w-ch{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:var(--r-sm);padding:12px 14px;display:flex;align-items:flex-start;gap:10px}
 .w-ch-n{font-family:'Playfair Display',serif;font-size:11px;color:rgba(201,148,58,0.5);font-weight:700;letter-spacing:1px;padding-top:1px;flex-shrink:0}
@@ -374,7 +374,8 @@ textarea.swot-inp:focus{outline:none;border-color:var(--gold);background:var(--w
   <div class="w-pattern"></div><div class="w-glow"></div><div class="w-glow2"></div>
   <div class="w-inner">
     <div class="w-eyebrow"><span class="w-dot"></span>10-Week Intensive Program</div>
-    <h1 class="w-h1">GECS Business<br><em>English Mastery</em></h1>
+    <h1 class="w-h1">GECS Business<br>English <em>Mastery</em></h1>
+    <p style="font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:20px;font-weight:400">Global Educational &amp; Cultural Services</p>
     <p class="w-sub">A comprehensive roadmap from foundational professional communication to complex negotiation and leadership skills — designed for corporate professionals and career-starters alike.</p>
     <div class="w-stats">
       <div><span class="w-stat-n">10</span><span class="w-stat-l">Chapters</span></div>
